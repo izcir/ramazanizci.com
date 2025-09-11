@@ -1,0 +1,313 @@
+<div class="project-about-content">
+    <div class="hero-section">
+        <h2 class="project-title">
+            <i class="fas fa-graduation-cap text-blue-600 dark:text-blue-400 mr-3"></i>
+            Sınavİzcisi.com
+        </h2>
+        <p class="project-subtitle">YKS Verilerini Yapay Zeka ile Buluşturan Platform</p>
+    </div>
+
+    <div class="content-section">
+        <div class="intro-box">
+            <h3 class="section-title">
+                <i class="fas fa-info-circle text-emerald-500 mr-2"></i>
+                Platform Hakkında
+            </h3>
+            <p class="intro-text">
+                Sınavİzcisi.com, YKS yerleşme verilerini toplayıp analiz eden ve öğrencilerin tercih sürecinde 
+                <strong>veriye dayalı karar</strong> vermesini sağlayan kapsamlı bir web platformudur. 
+                Bu proje, hem web geliştirme hem veri bilimi hem de yapay zeka alanındaki deneyimimi birleştiren 
+                en büyük kişisel çalışmam oldu.
+            </p>
+        </div>
+
+        <div class="tech-highlights">
+            <h3 class="section-title">
+                <i class="fas fa-cogs text-purple-500 mr-2"></i>
+                Teknik Öne Çıkanlar
+            </h3>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fab fa-python text-blue-500"></i>
+                    </div>
+                    <div class="tech-content">
+                        <h4>Django Framework</h4>
+                        <p>Ölçeklenebilir backend mimarisi</p>
+                    </div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-database text-green-500"></i>
+                    </div>
+                    <div class="tech-content">
+                        <h4>PostgreSQL</h4>
+                        <p>Büyük veri setleri için optimize edilmiş</p>
+                    </div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-robot text-red-500"></i>
+                    </div>
+                    <div class="tech-content">
+                        <h4>AI & ML</h4>
+                        <p>Transformers ile tahmin modelleri</p>
+                    </div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-spider text-orange-500"></i>
+                    </div>
+                    <div class="tech-content">
+                        <h4>Web Scraping</h4>
+                        <p>Otomatik veri toplama sistemleri</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="achievement-box">
+            <h3 class="section-title">
+                <i class="fas fa-trophy text-gold-500 mr-2"></i>
+                Başarılar & İmpact
+            </h3>
+            <div class="achievement-stats">
+                <div class="stat-item">
+                    <div class="stat-number">100K+</div>
+                    <div class="stat-label">Aylık Sayfa Görüntülenmesi</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">14000+</div>
+                    <div class="stat-label">Lise</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5M+</div>
+                    <div class="stat-label">Yerleşme Verisi</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.project-about-content {
+    max-width: 56rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.hero-section {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.project-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: rgb(17 24 39);
+    margin-bottom: 1rem;
+}
+
+.dark .project-title {
+    color: rgb(255 255 255);
+}
+
+@media (min-width: 768px) {
+    .project-title {
+        font-size: 2.25rem;
+    }
+}
+
+.project-subtitle {
+    font-size: 1.125rem;
+    color: rgb(75 85 99);
+    font-weight: 500;
+}
+
+.dark .project-subtitle {
+    color: rgb(209 213 219);
+}
+
+@media (min-width: 768px) {
+    .project-subtitle {
+        font-size: 1.25rem;
+    }
+}
+
+.content-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: rgb(31 41 55);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.dark .section-title {
+    color: rgb(229 231 235);
+}
+
+@media (min-width: 768px) {
+    .section-title {
+        font-size: 1.5rem;
+    }
+}
+
+.intro-box, .story-box, .achievement-box {
+    background-color: rgb(255 255 255);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgb(229 231 235);
+}
+
+.dark .intro-box, .dark .story-box, .dark .achievement-box {
+    background-color: rgb(31 41 55);
+    border-color: rgb(55 65 81);
+}
+
+.intro-text, .story-text {
+    color: rgb(55 65 81);
+    line-height: 1.625;
+    font-size: 1rem;
+}
+
+.dark .intro-text, .dark .story-text {
+    color: rgb(209 213 219);
+}
+
+@media (min-width: 768px) {
+    .intro-text, .story-text {
+        font-size: 1.125rem;
+    }
+}
+
+.tech-highlights {
+    background: linear-gradient(to bottom right, rgb(250 245 255), rgb(238 242 255));
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgb(196 181 253);
+}
+
+.dark .tech-highlights {
+    background: linear-gradient(to bottom right, rgb(31 41 55), rgb(17 24 39));
+    border-color: rgb(55 65 81);
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .tech-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.tech-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: rgb(255 255 255);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border: 1px solid rgb(229 231 235);
+}
+
+.dark .tech-item {
+    background-color: rgb(31 41 55);
+    border-color: rgb(55 65 81);
+}
+
+.tech-icon {
+    font-size: 1.5rem;
+}
+
+.tech-content h4 {
+    font-weight: 600;
+    color: rgb(31 41 55);
+}
+
+.dark .tech-content h4 {
+    color: rgb(229 231 235);
+}
+
+.tech-content p {
+    font-size: 0.875rem;
+    color: rgb(107 114 128);
+}
+
+.dark .tech-content p {
+    color: rgb(156 163 175);
+}
+
+.achievement-stats {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .achievement-stats {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.stat-item {
+    text-align: center;
+    padding: 1rem;
+    background: linear-gradient(to bottom right, rgb(239 246 255), rgb(238 242 255));
+    border-radius: 0.5rem;
+    border: 1px solid rgb(191 219 254);
+}
+
+.dark .stat-item {
+    background: linear-gradient(to bottom right, rgb(55 65 81), rgb(31 41 55));
+    border-color: rgb(55 65 81);
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgb(37 99 235);
+    margin-bottom: 0.5rem;
+}
+
+.dark .stat-number {
+    color: rgb(96 165 250);
+}
+
+@media (min-width: 768px) {
+    .stat-number {
+        font-size: 1.875rem;
+    }
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgb(107 114 128);
+}
+
+.dark .stat-label {
+    color: rgb(209 213 219);
+}
+
+.text-gold-500 {
+    color: #f59e0b;
+}
+</style>

@@ -1,0 +1,297 @@
+<div class="project-about-content">
+    <div class="hero-section">
+        <h2 class="project-title">
+            <i class="fas fa-graduation-cap text-green-600 dark:text-green-400 mr-3"></i>
+            YokAPI
+        </h2>
+        <p class="project-subtitle">YÖK Verilerini Normalize Eden API Katmanı</p>
+    </div>
+
+    <div class="content-section">
+        <div class="intro-box">
+            <h3 class="section-title">
+                <i class="fas fa-info-circle text-emerald-500 mr-2"></i>
+                Proje Hakkında
+            </h3>
+            <p class="intro-text">
+                YokAPI, <strong>YÖK Atlas</strong> verilerini tek bir <strong>standardize edilmiş API</strong> 
+                üzerinden sunan, geliştiriciler için tasarlanmış bir veri katmanıdır. 
+                Asenkron yapıya sahip toplu ve hızlı veri çekme işlemleri için YÖK Atlas'ın 
+                yıllara göre dağınık ve farklılaşan site yapısını normalize edip 
+                <strong>standartlaştırılmış bir şekilde JSON</strong> olarak sunan güçlü bir araçtır. 
+                Farklı kaynaklardan gelen eğitim verilerini birleştirip, tutarlı bir format 
+                halinde sunarak diğer projelerde kullanımını kolaylaştırır.
+            </p>
+        </div>
+
+        <div class="features-grid">
+            <h3 class="section-title">
+                <i class="fas fa-star text-yellow-500 mr-2"></i>
+                Temel Özellikler
+            </h3>
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt text-blue-500"></i>
+                    </div>
+                    <h4>Asenkron Performans</h4>
+                    <p>aiohttp ve asyncio ile yüksek performanslı veri işleme</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt text-green-500"></i>
+                    </div>
+                    <h4>Tip Güvenliği</h4>
+                    <p>Pydantic modeller ile güvenli veri kullanımı</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-plug text-purple-500"></i>
+                    </div>
+                    <h4>Kolay Entegrasyon</h4>
+                    <p>Basit API endpointleri ve Python kütüphanesi</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cog text-orange-500"></i>
+                    </div>
+                    <h4>Esnek Kullanım</h4>
+                    <p>Kendi session'ınızı kullanabilir veya otomatik oluşturabilirsiniz</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="code-example-box">
+            <h3 class="section-title">
+                <i class="fas fa-code text-indigo-500 mr-2"></i>
+                Örnek Kullanım
+            </h3>
+            <div class="code-block">
+                <pre><code class="language-python">
+from YokAPI import Lisans, Onlisans
+import asyncio
+
+async def main():
+    async with Lisans(program_id=108210665, year=2024) as lisans:
+        # Normalize edilmiş veri al
+        data = await lisans.get_program_data()
+        print(data)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="impact-box">
+            <h3 class="section-title">
+                <i class="fas fa-chart-line text-green-500 mr-2"></i>
+                Proje İmpactı
+            </h3>
+            <p class="impact-text">
+                YokAPI, Sınavİzcisi.com projesinin temel veri katmanını oluşturuyor. 
+                <strong>MIT lisansı</strong> ile açık kaynak olarak sunulan bu proje, 
+                diğer geliştiricilerin de eğitim verilerine kolayca erişmesini sağlıyor.
+            </p>
+        </div>
+    </div>
+</div>
+
+<style>
+.project-about-content {
+    max-width: 56rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.hero-section {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.project-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: rgb(17 24 39);
+    margin-bottom: 1rem;
+}
+
+.dark .project-title {
+    color: rgb(255 255 255);
+}
+
+@media (min-width: 768px) {
+    .project-title {
+        font-size: 2.25rem;
+    }
+}
+
+.project-subtitle {
+    font-size: 1.125rem;
+    color: rgb(75 85 99);
+    font-weight: 500;
+}
+
+.dark .project-subtitle {
+    color: rgb(209 213 219);
+}
+
+@media (min-width: 768px) {
+    .project-subtitle {
+        font-size: 1.25rem;
+    }
+}
+
+.content-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: rgb(31 41 55);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.dark .section-title {
+    color: rgb(229 231 235);
+}
+
+@media (min-width: 768px) {
+    .section-title {
+        font-size: 1.5rem;
+    }
+}
+
+.intro-box, .problem-solution-box, .impact-box {
+    background-color: rgb(255 255 255);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgb(229 231 235);
+}
+
+.dark .intro-box, .dark .problem-solution-box, .dark .impact-box {
+    background-color: rgb(31 41 55);
+    border-color: rgb(55 65 81);
+}
+
+.intro-text, .problem-text, .impact-text {
+    color: rgb(55 65 81);
+    line-height: 1.625;
+    font-size: 1rem;
+}
+
+.dark .intro-text, .dark .problem-text, .dark .impact-text {
+    color: rgb(209 213 219);
+}
+
+@media (min-width: 768px) {
+    .intro-text, .problem-text, .impact-text {
+        font-size: 1.125rem;
+    }
+}
+
+.features-grid {
+    background: linear-gradient(to bottom right, rgb(236 253 245), rgb(239 246 255));
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgb(34 197 94);
+}
+
+.dark .features-grid {
+    background: linear-gradient(to bottom right, rgb(31 41 55), rgb(17 24 39));
+    border-color: rgb(55 65 81);
+}
+
+.feature-cards {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .feature-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.feature-card {
+    background-color: rgb(255 255 255);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border: 1px solid rgb(229 231 235);
+}
+
+.dark .feature-card {
+    background-color: rgb(31 41 55);
+    border-color: rgb(55 65 81);
+}
+
+.feature-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.feature-card h4 {
+    font-weight: 600;
+    color: rgb(31 41 55);
+    margin-bottom: 0.5rem;
+}
+
+.dark .feature-card h4 {
+    color: rgb(229 231 235);
+}
+
+.feature-card p {
+    font-size: 0.875rem;
+    color: rgb(107 114 128);
+}
+
+.dark .feature-card p {
+    color: rgb(156 163 175);
+}
+
+.code-example-box {
+    background: linear-gradient(to bottom right, rgb(238 242 255), rgb(245 243 255));
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgb(196 181 253);
+}
+
+.dark .code-example-box {
+    background: linear-gradient(to bottom right, rgb(31 41 55), rgb(17 24 39));
+    border-color: rgb(55 65 81);
+}
+
+.code-block {
+    background-color: rgb(17 24 39);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    overflow-x: auto;
+}
+
+.dark .code-block {
+    background-color: rgb(31 41 55);
+}
+
+.code-block pre {
+    font-size: 0.875rem;
+    color: rgb(209 213 219);
+}
+
+.code-block code {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Monaco, Inconsolata, "Roboto Mono", "Source Code Pro", monospace;
+}
+</style>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Ramazan İzci - Bilgisayar Mühendisi{% endblock %}</title>
+    <meta name="description" content="Bilgisayar mühendisliği öğrencisi. Yapay zekâ, Django ve PostgreSQL ile üretim odaklı projeler geliştiriyor.">
+      <!-- Theme initialization script - MUST be before any CSS -->
+    <script>
+        // Initialize theme immediately to prevent flash
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+            }
+            // Hide body initially to prevent flash
+            document.documentElement.style.visibility = 'hidden';
+        })();
+    </script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'ui-sans-serif', 'system-ui'],
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 2s infinite',
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+      <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .dark .gradient-bg {
+            background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .dark .card-hover:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Enhanced blur for navbar */
+        nav {
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+        }
+        
+        #mobile-menu {
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+        }
+    </style>
+</head>
+<body class="font-sans bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300 page-loading">    <!-- Navigation -->
+    <nav class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-11/12 max-w-5xl bg-white/70 dark:bg-black/60 backdrop-blur-3xl border border-gray-200/50 dark:border-white/10 shadow-lg rounded-xl">
+        <div class="px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#hero" class="text-xl font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                        Ramazan İzci
+                    </a>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="/" class="nav-link">Ana Sayfa</a>
+                        <a href="#about" class="nav-link">Hakkımda</a>
+                        <a href="#projects" class="nav-link">Projeler</a>
+                        <a href="#skills" class="nav-link">Yetenekler</a>
+                        <a href="#contact" class="nav-link">İletişim</a>
+                    </div>
+                </div>
+                
+                <div class="flex items-center space-x-4">                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-black/10 dark:bg-white/10 hover:bg-black/20 dark:hover:bg-white/20 transition-colors">
+                        <i class="fas fa-sun text-black dark:text-white" id="sun-icon"></i>
+                        <i class="fas fa-moon text-black dark:text-white hidden" id="moon-icon"></i>
+                    </button>
+                    
+                    <!-- Mobile menu button -->
+                    <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg bg-black/10 dark:bg-white/10 hover:bg-black/20 dark:hover:bg-white/20">
+                        <i class="fas fa-bars text-black dark:text-white"></i>
+                    </button>
+                </div>
+            </div>
+        </div>        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white/70 dark:bg-black/60 backdrop-blur-3xl border-t border-black/10 dark:border-white/10 rounded-b-xl">
+            <div class="px-4 pt-2 pb-3 space-y-1">
+                <a href="/" class="mobile-nav-link">Ana Sayfa</a>
+                <a href="#projects" class="mobile-nav-link">Projeler</a>
+                <a href="#skills" class="mobile-nav-link">Yetenekler</a>
+                <a href="#about" class="mobile-nav-link">Hakkımda</a>
+                <a href="#contact" class="mobile-nav-link">İletişim</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>    <!-- Footer -->
+    <footer class="bg-white dark:bg-gray-800 py-8 border-t border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-gray-700 dark:text-gray-400">
+                    © 2025 Ramazan İzci. Tüm hakları saklıdır.
+                </p>
+                <div class="mt-4 flex justify-center space-x-6">
+                    <a href="https://github.com/ramazanizci" target="_blank" class="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 transition-colors">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/ramazanizci" target="_blank" class="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 transition-colors">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="mailto:ramazan@example.com" class="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 transition-colors">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer><!-- Scripts -->
+    <script src="{% static 'js/main.js' %}"></script>    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sadece sayfayı görünür yap ve navbar gölge efektini yönet.
+            const navbar = document.querySelector('nav');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('shadow-2xl');
+                    navbar.classList.remove('shadow-lg');
+                } else {
+                    navbar.classList.remove('shadow-2xl');
+                    navbar.classList.add('shadow-lg');
+                }
+            });
+            setTimeout(() => { document.documentElement.style.visibility = 'visible'; }, 50);
+        });
+        // Yük geç kalırsa da görünür yap
+        window.addEventListener('load', function() { document.documentElement.style.visibility = 'visible'; });
+    </script>
+      <style>
+        .nav-link {
+            color: #6b7280;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #111827;
+        }
+        
+        .dark .nav-link {
+            color: #d1d5db;
+        }
+        
+        .dark .nav-link:hover {
+            color: white;
+        }
+        
+        .mobile-nav-link {
+            display: block;
+            padding: 8px 12px;
+            color: #6b7280;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-nav-link:hover {
+            color: #111827;
+            background-color: #f3f4f6;
+        }
+        
+        .dark .mobile-nav-link {
+            color: #d1d5db;
+        }
+        
+        .dark .mobile-nav-link:hover {
+            color: white;
+            background-color: #374151;
+        }
+    </style>
+</body>
+</html>

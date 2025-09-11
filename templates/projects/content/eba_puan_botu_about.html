@@ -1,0 +1,298 @@
+<div class="project-about-content">
+    <div class="hero-section">
+        <h2 class="project-title">
+            <i class="fas fa-desktop text-orange-600 dark:text-orange-400 mr-3"></i>
+            EBA Puan Botu
+        </h2>
+    </div>
+
+    <div class="content-section">
+        <div class="intro-box">
+            <h3 class="section-title">
+                <i class="fas fa-heart text-red-500 mr-2"></i>
+                Proje Hikayesi
+            </h3>
+            <p class="intro-text">
+                Lisedeyken EBA sitesinde puan kasmak için yazdığım bu masaüstü uygulama, 
+                programlamaya olan tutkumun ilk ciddi meyvelerinden biriydi. 
+                Şu an teknik olarak çalışmasa da, o dönemdeki <strong>öğrenme hevesimi</strong> 
+                ve problem çözme yaklaşımımı hatırlatan özel bir proje olduğu için 
+                portföyümde tutmaya karar verdim.
+            </p>
+        </div>
+
+        <div class="memory-box">
+            <p class="memory-text">
+                2020 yılında, pandemi döneminde EBA'nın popüler olduğu günlerde yazdığım bu bot, 
+                benim için sadece bir araç değil, aynı zamanda <strong>programlamayı sevmemin</strong> 
+                temel nedenlerinden biriydi. Yapay zekanın da olmadığı o günlerde, saatlerce kod yazıp, hata ayıklayıp, 
+                sonunda çalışan bir şey görmenin verdiği zevk çok başkaydı o zaman.
+            </p>
+        </div>
+
+        <div class="tech-features">
+            <h3 class="section-title">
+                <i class="fas fa-tools text-purple-500 mr-2"></i>
+                Teknik Özellikler
+            </h3>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fab fa-python text-blue-500"></i>
+                    </div>
+                    <div class="tech-content">
+                        <h4>Python Backend</h4>
+                        <p>Selenium ile web otomasyonu</p>
+                    </div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-window-maximize text-green-500"></i>
+                    </div>
+                    <div class="tech-content">
+                        <h4>PyQt5 Arayüzü</h4>
+                        <p>Kullanıcı dostu masaüstü deneyimi</p>
+                    </div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-spider text-orange-500"></i>
+                    </div>
+                    <div class="tech-content">
+                        <h4>Web Scraping</h4>
+                        <p>Requests ve BeautifulSoup ile veri çekme</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="learning-box">
+            <h3 class="section-title">
+                <i class="fas fa-graduation-cap text-indigo-500 mr-2"></i>
+                Bu Projeden Öğrendiklerim
+            </h3>
+            <div class="learning-points">
+                <div class="learning-point">
+                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                    <span>GUI programlaması ve kullanıcı deneyimi tasarımı</span>
+                </div>
+                <div class="learning-point">
+                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                    <span>Web scraping ve dinamik içerikle çalışma</span>
+                </div>
+                <div class="learning-point">
+                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                    <span>Threading ile çoklu görev yönetimi</span>
+                </div>
+                <div class="learning-point">
+                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                    <span>Hata yönetimi ve kullanıcı geri bildirimi</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.project-about-content {
+    max-width: 56rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.hero-section {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.project-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: rgb(17 24 39);
+    margin-bottom: 1rem;
+}
+
+.dark .project-title {
+    color: rgb(255 255 255);
+}
+
+@media (min-width: 768px) {
+    .project-title {
+        font-size: 2.25rem;
+    }
+}
+
+.project-subtitle {
+    font-size: 1.125rem;
+    color: rgb(75 85 99);
+    font-weight: 500;
+    font-style: italic;
+}
+
+.dark .project-subtitle {
+    color: rgb(209 213 219);
+}
+
+@media (min-width: 768px) {
+    .project-subtitle {
+        font-size: 1.25rem;
+    }
+}
+
+.content-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: rgb(31 41 55);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.dark .section-title {
+    color: rgb(229 231 235);
+}
+
+@media (min-width: 768px) {
+    .section-title {
+        font-size: 1.5rem;
+    }
+}
+
+.intro-box, .memory-box, .learning-box, .reflection-box {
+    background-color: rgb(255 255 255);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgb(229 231 235);
+}
+
+.dark .intro-box, .dark .memory-box, .dark .learning-box, .dark .reflection-box {
+    background-color: rgb(31 41 55);
+    border-color: rgb(55 65 81);
+}
+
+.intro-text, .memory-text, .reflection-text {
+    color: rgb(55 65 81);
+    line-height: 1.625;
+    font-size: 1rem;
+}
+
+.dark .intro-text, .dark .memory-text, .dark .reflection-text {
+    color: rgb(209 213 219);
+}
+
+@media (min-width: 768px) {
+    .intro-text, .memory-text, .reflection-text {
+        font-size: 1.125rem;
+    }
+}
+
+.tech-features {
+    background: linear-gradient(to bottom right, rgb(255 247 237), rgb(254 226 226));
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgb(253 186 116);
+}
+
+.dark .tech-features {
+    background: linear-gradient(to bottom right, rgb(31 41 55), rgb(17 24 39));
+    border-color: rgb(55 65 81);
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .tech-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.tech-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: rgb(255 255 255);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border: 1px solid rgb(229 231 235);
+}
+
+.dark .tech-item {
+    background-color: rgb(31 41 55);
+    border-color: rgb(55 65 81);
+}
+
+.tech-icon {
+    font-size: 1.5rem;
+}
+
+.tech-content h4 {
+    font-weight: 600;
+    color: rgb(31 41 55);
+}
+
+.dark .tech-content h4 {
+    color: rgb(229 231 235);
+}
+
+.tech-content p {
+    font-size: 0.875rem;
+    color: rgb(107 114 128);
+}
+
+.dark .tech-content p {
+    color: rgb(156 163 175);
+}
+
+.learning-points {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.learning-point {
+    display: flex;
+    align-items: center;
+    color: rgb(55 65 81);
+}
+
+.dark .learning-point {
+    color: rgb(209 213 219);
+}
+
+.memory-box {
+    background: linear-gradient(to bottom right, rgb(239 246 255), rgb(238 242 255));
+    border-color: rgb(191 219 254);
+}
+
+.dark .memory-box {
+    background: linear-gradient(to bottom right, rgb(31 41 55), rgb(17 24 39));
+    border-color: rgb(55 65 81);
+}
+
+.reflection-box {
+    background: linear-gradient(to bottom right, rgb(254 249 195), rgb(255 237 213));
+    border-color: rgb(253 224 71);
+}
+
+.dark .reflection-box {
+    background: linear-gradient(to bottom right, rgb(31 41 55), rgb(17 24 39));
+    border-color: rgb(55 65 81);
+}
+</style>

@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+
+{% block title %}İletişim - Ramazan İzci{% endblock %}
+
+{% block content %}
+<div class="pt-32 pb-12 bg-white dark:bg-gray-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="mb-6 p-4 rounded-lg {% if message.tags == 'success' %}bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200{% else %}bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                İletişim
+            </h1>
+            <p class="text-lg text-gray-700 dark:text-gray-300">
+                Mesajınızı bırakın, en kısa sürede size dönüş yapacağım.
+            </p>
+        </div>
+
+        <div class="bg-white dark:bg-gray-900 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 p-8">
+            <form method="post" class="space-y-6">
+                {% csrf_token %}
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="id_name" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Adınız</label>
+                        <input type="text" id="id_name" name="name" required maxlength="100" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Adınız">
+                    </div>
+                    <div>
+                        <label for="id_email" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Email</label>
+                        <input type="email" id="id_email" name="email" required maxlength="254" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Email adresiniz">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="id_subject" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Konu</label>
+                    <input type="text" id="id_subject" name="subject" required maxlength="200" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Konu">
+                </div>
+
+                <div>
+                    <label for="id_message" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Mesaj</label>
+                    <textarea id="id_message" name="message" rows="5" required maxlength="1000" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Mesajınız"></textarea>
+                </div>
+
+                <div style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;">
+                    <input type="text" name="website" tabindex="-1" autocomplete="off" placeholder="Leave this field empty">
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn-primary" id="contact-submit-btn">
+                        <i class="fas fa-paper-plane mr-2"></i>Mesaj Gönder
+                    </button>
+                </div>
+            </form>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const form = document.querySelector('form');
+                    const submitBtn = document.getElementById('contact-submit-btn');
+
+                    form.addEventListener('submit', function(e) {
+                        const name = form.querySelector('[name="name"]').value.trim();
+                        const email = form.querySelector('[name="email"]').value.trim();
+                        const subject = form.querySelector('[name="subject"]').value.trim();
+                        const message = form.querySelector('[name="message"]').value.trim();
+
+                        if (!name || !email || !subject || !message) {
+                            e.preventDefault();
+                            alert('Lütfen tüm alanları doldurun.');
+                            return false;
+                        }
+
+                        if (name.length > 100) {
+                            e.preventDefault();
+                            alert('İsim çok uzun (maksimum 100 karakter).');
+                            return false;
+                        }
+
+                        if (subject.length > 200) {
+                            e.preventDefault();
+                            alert('Konu çok uzun (maksimum 200 karakter).');
+                            return false;
+                        }
+
+                        if (message.length > 1000) {
+                            e.preventDefault();
+                            alert('Mesaj çok uzun (maksimum 1000 karakter).');
+                            return false;
+                        }
+
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (!emailRegex.test(email)) {
+                            e.preventDefault();
+                            alert('Geçerli bir email adresi girin.');
+                            return false;
+                        }
+
+                        submitBtn.disabled = true;
+                        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Gönderiliyor...';
+                    });
+                });
+            </script>
+        </div>
+    </div>
+</div>
+
+<style>
+    .btn-primary {
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        color: white;
+        padding: 12px 32px;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .btn-primary:hover {
+        background: linear-gradient(135deg, #2563eb, #7c3aed);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+    }
+
+    label {
+        display: block;
+        color: #374151;
+        font-weight: 500;
+        margin-bottom: 8px;
+    }
+
+    .dark label {
+        color: #d1d5db;
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,390 @@
+<div class="technical-details-content">
+    <div class="api-design-section">
+        <h3 class="tech-title">
+            <i class="fas fa-code text-green-500 mr-2"></i>
+            API Tasarımı & Mimarisi
+        </h3>
+        <div class="api-components">
+            <div class="api-component">
+                <div class="component-header">
+                    <i class="fas fa-sync text-blue-600"></i>
+                    <h4>Asenkron İşlemler</h4>
+                </div>
+                <div class="component-details">
+                    <p>aiohttp ve asyncio kullanarak yüksek performanslı, non-blocking HTTP istekleri</p>
+                    <ul class="tech-list">
+                        <li>Concurrent request handling</li>
+                        <li>Connection pooling optimizasyonu</li>
+                        <li>Timeout ve retry mekanizmaları</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="api-component">
+                <div class="component-header">
+                    <i class="fas fa-shield-alt text-green-600"></i>
+                    <h4>Veri Modelleme</h4>
+                </div>
+                <div class="component-details">
+                    <p>Pydantic ile güçlü tip kontrolü ve veri validasyonu</p>
+                    <ul class="tech-list">
+                        <li>Automatic JSON serialization/deserialization</li>
+                        <li>Type hints ile IDE desteği</li>
+                        <li>Custom validators ile veri kontrolü</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="code-architecture">
+        <h3 class="tech-title">
+            <i class="fas fa-sitemap text-purple-500 mr-2"></i>
+            Kod Mimarisi
+        </h3>
+        <div class="architecture-breakdown">
+            <div class="arch-layer">
+                <h4 class="layer-title">
+                    <i class="fas fa-layer-group text-indigo-500 mr-2"></i>
+                    Session Management
+                </h4>
+                <div class="layer-content">
+                    <p>Esnek session yönetimi ile kullanıcı tercihine göre:</p>
+                    <div class="code-example">
+                        <pre><code># Otomatik session
+async with Lisans(program_id=123) as api:
+    data = await api.get_data()
+
+# Custom session
+session = aiohttp.ClientSession()
+api = Lisans(program_id=123, session=session)</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="data-processing">
+        <h3 class="tech-title">
+            <i class="fas fa-database text-blue-500 mr-2"></i>
+            Veri İşleme Pipeline
+        </h3>
+        <div class="pipeline-flow">
+            <div class="pipeline-step">
+                <div class="step-icon">
+                    <i class="fas fa-download text-blue-500"></i>
+                </div>
+                <div class="step-content">
+                    <h4>Veri Çekme</h4>
+                    <p>YÖK Atlas'tan ham verilerin asenkron çekilmesi</p>
+                </div>
+            </div>
+            <div class="pipeline-arrow">↓</div>
+            <div class="pipeline-step">
+                <div class="step-icon">
+                    <i class="fas fa-filter text-green-500"></i>
+                </div>
+                <div class="step-content">
+                    <h4>Normalizasyon</h4>
+                    <p>Tutarsız formatların standart hale getirilmesi</p>
+                </div>
+            </div>
+            <div class="pipeline-arrow">↓</div>
+            <div class="pipeline-step">
+                <div class="step-icon">
+                    <i class="fas fa-check-circle text-purple-500"></i>
+                </div>
+                <div class="step-content">
+                    <h4>Validasyon</h4>
+                    <p>Pydantic modeller ile veri doğrulaması</p>
+                </div>
+            </div>
+            <div class="pipeline-arrow">↓</div>
+            <div class="pipeline-step">
+                <div class="step-icon">
+                    <i class="fas fa-share-alt text-orange-500"></i>
+                </div>
+                <div class="step-content">
+                    <h4>API Response</h4>
+                    <p>Standartlaştırılmış JSON response</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.technical-details-content {
+    max-width: 64rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.5rem;
+    gap: 2rem;
+}
+
+.tech-title {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+
+@media (min-width: 768px) {
+    .tech-title {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+}
+
+.tech-title {
+    font-weight: 600;
+    color: rgb(31 41 55);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.dark .tech-title {
+    color: rgb(229 231 235);
+}
+
+.api-design-section {
+    background-color: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    border-width: 1px;
+    border-color: rgb(229 231 235);
+}
+
+.dark .api-design-section {
+    background-color: rgb(31 41 55);
+    border-color: rgb(55 65 81);
+}
+
+.api-components {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .api-components {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.api-component {
+    background-image: linear-gradient(to bottom right, rgb(236 253 245), rgb(219 234 254));
+    border-radius: 0.5rem;
+    padding: 1rem;
+    border-width: 1px;
+    border-color: rgb(34 197 94);
+}
+
+.dark .api-component {
+    background-image: linear-gradient(to bottom right, rgb(55 65 81), rgb(75 85 99));
+    border-color: rgb(107 114 128);
+}
+
+.component-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.component-header i {
+    font-size: 1.25rem;
+}
+
+.component-header h4 {
+    font-weight: 600;
+    color: rgb(31 41 55);
+}
+
+.dark .component-header h4 {
+    color: rgb(229 231 235);
+}
+
+.component-details p {
+    color: rgb(55 65 81);
+    margin-bottom: 0.5rem;
+}
+
+.dark .component-details p {
+    color: rgb(209 213 219);
+}
+
+.tech-list {
+    gap: 0.25rem;
+}
+
+.tech-list li {
+    font-size: 0.875rem;
+    color: rgb(75 85 99);
+}
+
+.dark .tech-list li {
+    color: rgb(156 163 175);
+}
+
+.tech-list li::before {
+    content: "→";
+    color: rgb(34 197 94);
+    font-weight: 700;
+    margin-right: 0.5rem;
+}
+
+.code-architecture {
+    background-image: linear-gradient(to bottom right, rgb(250 245 255), rgb(238 242 255));
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    border-width: 1px;
+    border-color: rgb(196 181 253);
+}
+
+.dark .code-architecture {
+    background-image: linear-gradient(to bottom right, rgb(31 41 55), rgb(55 65 81));
+    border-color: rgb(75 85 99);
+}
+
+.architecture-breakdown {
+    gap: 1.5rem;
+}
+
+.arch-layer {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    border-width: 1px;
+    border-color: rgb(229 231 235);
+}
+
+.dark .arch-layer {
+    background-color: rgb(31 41 55);
+    border-color: rgb(75 85 99);
+}
+
+.layer-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: rgb(31 41 55);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+}
+
+.dark .layer-title {
+    color: rgb(229 231 235);
+}
+
+.layer-content p {
+    color: rgb(55 65 81);
+    margin-bottom: 0.75rem;
+}
+
+.dark .layer-content p {
+    color: rgb(209 213 219);
+}
+
+.code-example {
+    background-color: rgb(17 24 39);
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    overflow-x: auto;
+}
+
+.dark .code-example {
+    background-color: rgb(31 41 55);
+}
+
+.code-example pre {
+    font-size: 0.875rem;
+    color: rgb(209 213 219);
+}
+
+.error-features {
+    gap: 0.25rem;
+}
+
+.error-features li {
+    font-size: 0.875rem;
+    color: rgb(75 85 99);
+}
+
+.dark .error-features li {
+    color: rgb(156 163 175);
+}
+
+.error-features li::before {
+    content: "✓";
+    color: rgb(34 197 94);
+    font-weight: 700;
+    margin-right: 0.5rem;
+}
+
+.data-processing {
+    background-color: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    border-width: 1px;
+    border-color: rgb(229 231 235);
+}
+
+.dark .data-processing {
+    background-color: rgb(31 41 55);
+    border-color: rgb(55 65 81);
+}
+
+.pipeline-flow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pipeline-step {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: rgb(249 250 251);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    width: 100%;
+    max-width: 28rem;
+}
+
+.dark .pipeline-step {
+    background-color: rgb(55 65 81);
+}
+
+.step-icon {
+    font-size: 1.5rem;
+}
+
+.step-content h4 {
+    font-weight: 600;
+    color: rgb(31 41 55);
+}
+
+.dark .step-content h4 {
+    color: rgb(229 231 235);
+}
+
+.step-content p {
+    font-size: 0.875rem;
+    color: rgb(75 85 99);
+}
+
+.dark .step-content p {
+    color: rgb(156 163 175);
+}
+
+.pipeline-arrow {
+    font-size: 1.5rem;
+    color: rgb(107 114 128);
+    font-weight: 700;
+}
+</style>
