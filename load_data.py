@@ -223,7 +223,7 @@ def main():
     print("python manage.py runserver")
     print()
     print("Admin paneline erişmek için:")
-    print("http://127.0.0.1:8000/admin/")
+    print("http://127.0.0.1:8000/" + os.environ.get('ADMIN_URL', 'admin/'))
 
 if __name__ == '__main__':
     main()
