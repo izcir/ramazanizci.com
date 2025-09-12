@@ -132,31 +132,31 @@ def create_skills():
             'order': 1
         },
         {
-            'name': 'Django',
-            'description': 'İleri seviye Django web geliştirme, ölçeklenebilir sistemler ve veritabanı optimizasyonu. sinavizcisi.com platformunun tüm veritabanı ve backend mimarisini Django ile tasarladım.',
-            'level': 'advanced',
-            'icon': 'fab fa-django',
-            'order': 2
-        },
-        {
-            'name': 'PostgreSQL',
-            'description': 'sinavizcisi.com’un veritabanı tasarımını PostgreSQL ile yaptım. Büyük ölçekli veri tabanlarıyla çalışma, performans ve optimizasyon.',
-            'level': 'intermediate',
-            'icon': 'fas fa-database',
-            'order': 3
-        },
-        {
             'name': 'Web Scraping',
             'description': 'Requests, BeautifulSoup, Selenium, Playwright ile bot korumalı sitelerden veri çekme, login/cookie işlemleri, toplu veri çekme ve proxy değiştirme konularında deneyim.',
             'level': 'advanced',
             'icon': 'fas fa-spider',
-            'order': 4
+            'order': 2
         },
         {
             'name': 'Veri Analizi',
             'description': 'Pandas ve NumPy ile veri temizleme, analiz ve büyük veri setleriyle çalışma tecrübesi.',
             'level': 'intermediate',
             'icon': 'fas fa-chart-bar',
+            'order': 3
+        },
+        {
+            'name': 'Django',
+            'description': 'İleri seviye Django web geliştirme, ölçeklenebilir sistemler ve veritabanı optimizasyonu. sinavizcisi.com platformunun tüm veritabanı ve backend mimarisini Django ile tasarladım.',
+            'level': 'advanced',
+            'icon': 'fab fa-django',
+            'order': 4
+        },
+        {
+            'name': 'PostgreSQL',
+            'description': 'sinavizcisi.com’un veritabanı tasarımını PostgreSQL ile yaptım. Büyük ölçekli veri tabanlarıyla çalışma, performans ve optimizasyon.',
+            'level': 'intermediate',
+            'icon': 'fas fa-database',
             'order': 5
         },
         {
