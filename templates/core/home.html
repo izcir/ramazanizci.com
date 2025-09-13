@@ -19,7 +19,7 @@
     </div>
 {% endif %}
 
-<section id="hero" class="min-h-screen relative overflow-hidden bg-white dark:bg-black">
+<section id="hero" class="min-h-screen relative overflow-hidden bg-white dark:bg-black pt-32 md:pt-0">
     <div class="absolute inset-0 bg-white dark:bg-black"></div>
 
     <div class="absolute inset-0 opacity-30">
@@ -97,7 +97,7 @@
                 </div>
             </div>
 
-            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-slow md:bottom-16">
                 <a href="#about" class="scroll-indicator group">
                     <div class="scroll-arrow">
                         <i class="fas fa-chevron-down text-black dark:text-white text-xl group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors"></i>
@@ -648,10 +648,14 @@
         color: rgba(59, 130, 246, 0.9);
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
         .btn-hero-primary {
             padding: 14px 28px;
             font-size: 16px;
+        }
+
+        .scroll-indicator {
+            display: none;
         }
     }
 </style>

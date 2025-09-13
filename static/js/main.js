@@ -1,5 +1,5 @@
 (function() {
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    const savedTheme = localStorage.getItem('theme') || 'dark';
     if (savedTheme === 'dark' && !document.documentElement.classList.contains('dark')) {
         document.documentElement.classList.add('dark');
     }
@@ -12,7 +12,14 @@ class ThemeManager {
         this.ensureVisibility();
     }    initTheme() {
         const html = document.documentElement;
-        const isDark = html.classList.contains('dark');
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        const isDark = savedTheme === 'dark';
+
+        if (isDark && !html.classList.contains('dark')) {
+            html.classList.add('dark');
+        } else if (!isDark && html.classList.contains('dark')) {
+            html.classList.remove('dark');
+        }
 
         const sunIcon = document.getElementById('sun-icon');
         const moonIcon = document.getElementById('moon-icon');
