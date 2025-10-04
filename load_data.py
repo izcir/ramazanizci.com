@@ -47,7 +47,6 @@ def create_projects():
             'about_html': load_content_file('sinavizcisi_about.html'),
             'project_info': {
                 'category': 'Web Geliştirme, Veri Analizi, Yapay Zeka, Web Scraping',
-                'status': 'aktif',
                 'start_date': '2025-06',
             },
             'features': [
