@@ -1,0 +1,63 @@
+<div class="technical-details-content">
+  <div class="api-design-section">
+    <h3 class="tech-title">
+      <i class="fas fa-database text-blue-500 mr-2"></i>
+      Veri Modeli (Kısa)
+    </h3>
+    <ul class="tech-list">
+      <li>Normalize çekirdek: departments_normalized.csv, department_stats.csv</li>
+      <li>Lookup/köprü: department_names, faculty_names, score_types, universities_normalized, department_tags vb.</li>
+      <li>Hızlı EDA: data/all_in_one_denormalized.csv</li>
+    </ul>
+  </div>
+
+  <div class="code-architecture">
+    <h3 class="tech-title">
+      <i class="fas fa-sitemap text-purple-500 mr-2"></i>
+      ETL Adımları
+    </h3>
+    <ul class="tech-list">
+      <li>remove_2025_from_departments.py → 2025 ayıklama</li>
+      <li>process_raw_data.py → normalize tablolar</li>
+      <li>build_all_in_one_denormalized.py → tek tablo</li>
+    </ul>
+  </div>
+
+  <div class="code-example-box">
+    <h3 class="tech-title">
+      <i class="fas fa-terminal text-indigo-500 mr-2"></i>
+      Örnek Kullanım
+    </h3>
+    <div class="code-block">
+      <pre><code class="language-python">import pandas as pd
+
+# Denormalize dosya ile hızlı filtre
+eda = pd.read_csv('data/all_in_one_denormalized.csv')
+q = (
+    (eda['year'] == 2024) &
+    (eda['city'] == 'İSTANBUL') &
+    (eda['university_type'] == 'vakif') &
+    (eda['department_name'] == 'Bilgisayar Mühendisliği')
+)
+print(eda.loc[q, ['university_name','scholarship_type','total_quota','total_enrolled']])
+</code></pre>
+    </div>
+  </div>
+</div>
+
+<style>
+.technical-details-content { max-width: 64rem; margin: 0 auto; padding: 1.5rem; gap: 1.25rem; }
+.tech-title { font-size: 1.25rem; line-height: 1.75rem; font-weight: 600; color: rgb(31 41 55); margin-bottom: 0.9rem; display: flex; align-items: center; }
+@media (min-width: 768px){ .tech-title{ font-size: 1.5rem; line-height: 2rem; } }
+.dark .tech-title { color: rgb(229 231 235); }
+.api-design-section, .code-architecture, .code-example-box { background: #fff; border-radius: .75rem; padding: 1rem; box-shadow: 0 10px 15px -3px rgb(0 0 0 / .1), 0 4px 6px -4px rgb(0 0 0 / .1); border: 1px solid rgb(229 231 235); }
+.dark .api-design-section, .dark .code-architecture, .dark .code-example-box { background: rgb(31 41 55); border-color: rgb(55 65 81); }
+.tech-list { display: grid; gap: .45rem; list-style: none; padding: 0; margin: 0; }
+.tech-list li { font-size: .96rem; color: rgb(75 85 99); display: flex; }
+.dark .tech-list li { color: rgb(156 163 175); }
+.tech-list li::before { content: "→"; color: rgb(59 130 246); font-weight: 700; margin-right: .5rem; }
+.code-block { background: rgb(17 24 39); border-radius: .5rem; padding: 1rem; overflow-x: auto; }
+.dark .code-block { background: rgb(31 41 55); }
+.code-block pre { font-size: .875rem; color: rgb(209 213 219); }
+.code-block code { font-family: ui-monospace, SFMono-Regular, "SF Mono", Monaco, Inconsolata, "Roboto Mono", "Source Code Pro", monospace; }
+</style>

@@ -3,7 +3,7 @@ from projects.models import Project
 from skills.models import Skill
 
 def home(request):
-    projects = Project.objects.filter(is_active=True)
+    projects = Project.objects.filter(is_active=True).order_by('order', '-created_at')[:6]
     skills = Skill.objects.filter(is_active=True)
     
     context = {

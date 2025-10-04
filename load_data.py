@@ -113,7 +113,31 @@ def create_projects():
             'github_link': 'https://github.com/izcir/EbaPuanBot',
             'demo_link': '',
             'order': 3
-        }
+        },
+        {
+            'title': 'Türkiye Üniversite Bölüm Verileri (2019–2024)',
+            'slug': 'turkish-university-admissions-dataset',
+            'description': 'YÖK Atlas ve ÖSYM kaynaklarından toplanan 2019–2024 lisans/önlisans verilerini temizleyip standardize ederek analize hazır hale getiren kapsamlı veri seti.',
+            'technologies': 'Python, Pandas, CSV, ETL, Data Cleaning, Normalization',
+            'about_html': load_content_file('tuad_about.html'),
+            'project_info': {
+                'category': 'Dataset / Veri Seti',
+                'status': 'aktif',
+                'start_date': '2025-09',
+                'license': 'MIT'
+            },
+            'features': [
+                {'title': 'Normalize İlişkisel Yapı', 'description': 'Lookup ve köprü tablolarıyla veri tekrarını azaltan ilişkisel dosyalar.', 'icon': 'fas fa-sitemap'},
+                {'title': 'Denormalize Hızlı EDA', 'description': 'Tek dosyada tüm bilgilerin bulunduğu all_in_one_denormalized.csv ile hızlı keşif.', 'icon': 'fas fa-table'},
+                {'title': 'Kontroller', 'description': 'Kontenjan-yerleşen tutarlılığı, cinsiyet dağılımı, puan/sıra eksiklik desenleri raporlandı.', 'icon': 'fas fa-check-circle'},
+                {'title': 'ETL Betikleri', 'description': 'Ham veriden normalize ve denormalize çıktılara giden açık betikler.', 'icon': 'fas fa-code'},
+            ],
+            'technical_details': load_content_file('tuad_technical.html'),
+            'readme_url': 'https://github.com/izcir/turkish-university-admissions-dataset#readme',
+            'github_link': 'https://github.com/izcir/turkish-university-admissions-dataset',
+            'demo_link': '',
+            'order': 4
+        },
     ]
     
     for project_data in projects_data:
