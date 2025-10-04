@@ -122,7 +122,6 @@ def create_projects():
             'about_html': load_content_file('tuad_about.html'),
             'project_info': {
                 'category': 'Dataset / Veri Seti',
-                'status': 'aktif',
                 'start_date': '2025-09',
                 'license': 'MIT'
             },
