@@ -1,0 +1,341 @@
+{% extends 'base_en.html' %}
+{% load custom_filters %}
+
+{% block title %}{{ project.title_en|default:project.title }} - Ramazan Izci{% endblock %}
+
+{% block content %}
+<!-- Project Hero Section -->
+<section class="pt-32 pb-16 bg-gradient-to-br from-blue-600 via-teal-600 to-green-800 dark:from-gray-800 dark:via-gray-900 dark:to-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center text-white">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                {{ project.title_en|default:project.title }}
+            </h1>
+
+            <!-- Technology badges -->
+            <div class="flex flex-wrap justify-center gap-3 mb-8">
+                {% for tech in project.technologies_en|default:project.technologies|split:"," %}
+                    <span class="tech-badge">
+                        {{ tech|trim }}
+                    </span>
+                {% endfor %}
+            </div>
+
+            <!-- Action buttons -->
+            <div class="flex flex-wrap justify-center gap-4">
+                {% if project.github_link %}
+                <a href="{{ project.github_link }}" target="_blank" class="btn-hero-primary group">
+                    <i class="fab fa-github mr-2"></i>
+                    <span>GitHub</span>
+                </a>
+                {% endif %}
+                {% if project.demo_link %}
+                <a href="{{ project.demo_link }}" target="_blank" class="btn-hero-secondary group">
+                    <i class="fas fa-external-link-alt mr-2"></i>
+                    <span>Live Demo</span>
+                </a>
+                {% endif %}
+                <a href="/en/#projects" class="btn-hero-secondary group">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    <span>All Projects</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Project Content -->
+<section class="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-10">
+            <!-- Project Info Bar -->
+            {% with info=project.project_info_en|default:project.project_info %}
+            <div class="bg-gray-50 dark:bg-gray-800 rounded-xl px-4 py-3 md:px-6 md:py-4 border border-gray-200 dark:border-gray-700 shadow-sm">
+                <div class="flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-gray-600 dark:text-gray-300">
+                    <div class="flex items-center gap-2 text-gray-900 dark:text-white font-semibold">
+                        <i class="fas fa-info-circle text-blue-600 dark:text-blue-400"></i>
+                        <span>Project Information</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">Category</span>
+                        {% if info and info.category %}
+                            <div class="flex flex-wrap gap-2">
+                            {% for cat in info.category|split:"," %}
+                                <span class="inline-block px-2.5 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-xs">
+                                    {{ cat|trim }}
+                                </span>
+                            {% endfor %}
+                            </div>
+                        {% else %}
+                            <span class="inline-block px-2.5 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-xs">
+                                {% if "Django" in project.technologies %}
+                                    Web Development
+                                {% elif "PyQt" in project.technologies %}
+                                    Desktop Application
+                                {% elif "API" in project.technologies %}
+                                    API Development
+                                {% else %}
+                                    Software Development
+                                {% endif %}
+                            </span>
+                        {% endif %}
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">Date</span>
+                        <span class="font-medium text-gray-800 dark:text-gray-100">
+                            {% if info and info.start_date %}{{ info.start_date }}{% else %}{{ project.created_at|date:"F Y" }}{% endif %}
+                        </span>
+                    </div>
+                    {% if project.github_link or project.readme_url or project.demo_link %}
+                    <div class="flex flex-wrap items-center gap-4">
+                        {% if project.github_link %}
+                        <a href="{{ project.github_link }}" target="_blank"
+                           class="inline-flex items-center text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
+                            <i class="fab fa-github mr-2"></i>
+                            GitHub
+                        </a>
+                        {% endif %}
+                        {% if project.readme_url %}
+                        <a href="{{ project.readme_url }}" target="_blank"
+                           class="inline-flex items-center text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
+                            <i class="fas fa-book mr-2"></i>
+                            README
+                        </a>
+                        {% endif %}
+                        {% if project.demo_link %}
+                        <a href="{{ project.demo_link }}" target="_blank"
+                           class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
+                            <i class="fas fa-external-link-alt mr-2"></i>
+                            Live Demo
+                        </a>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                    {% if info %}
+                    <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+                        {% for key, val in info.items %}
+                            {% if key != 'category' and key != 'status' and key != 'start_date' and key != 'license' %}
+                            <span class="text-gray-600 dark:text-gray-300">
+                                <span class="text-gray-500 dark:text-gray-400">{{ key|capfirst }}:</span>
+                                <span class="font-medium text-gray-800 dark:text-gray-100">{{ val }}</span>
+                            </span>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endwith %}
+
+            <!-- Main Content -->
+            <div class="w-full space-y-12">
+                <!-- Project Image -->
+                {% if project.image %}
+                <div>
+                    <img src="{{ project.image.url }}" alt="{{ project.title_en|default:project.title }}"
+                         class="w-full h-64 md:h-96 object-cover rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700">
+                </div>
+                {% endif %}
+
+                <!-- Documentation Section -->
+                {% if project.readme_url %}
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+                        <i class="fas fa-book text-purple-600 dark:text-purple-400 mr-3"></i>
+                        Details and Documentation
+                    </h2>
+                    <div class="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-xl p-8 border border-purple-200 dark:border-purple-700 shadow-lg">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-file-alt text-3xl text-purple-600 dark:text-purple-400"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                                    Comprehensive Documentation
+                                </h3>
+                                <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                                    The detailed usage guide, API reference, and development notes for this project are available in the README file on GitHub.
+                                </p>
+                                <div class="flex flex-wrap gap-3">
+                                    <a href="{{ project.github_link }}" target="_blank"
+                                       class="inline-flex items-center bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                                        <i class="fab fa-github mr-2"></i>
+                                        Review GitHub README
+                                        <i class="fas fa-external-link-alt ml-2"></i>
+                                    </a>
+                                    {% if project.slug == 'turkish-university-admissions-dataset' %}
+                                    <a href="https://www.kaggle.com/datasets/ramazanizci/turkish-university-admissions" target="_blank"
+                                       class="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                                        <i class="fab fa-kaggle mr-2"></i>
+                                        Kaggle Page
+                                        <i class="fas fa-external-link-alt ml-2"></i>
+                                    </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- Project Description -->
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+                        <i class="fas fa-info-circle text-blue-600 dark:text-blue-400 mr-3"></i>
+                        About the Project
+                    </h2>
+                    <div class="prose prose-lg dark:prose-invert max-w-none">
+                        <div class="bg-white dark:bg-gray-800 rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700 shadow-lg">
+                            {% if project.about_html_en or project.about_html %}
+                                {{ project.about_html_en|default:project.about_html|safe }}
+                            {% else %}
+                                <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
+                                    {{ project.description_en|default:project.description }}
+                                </p>
+                            {% endif %}
+                        </div>
+                        {% if not project.about_html_en and not project.about_html %}
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            {{ project.description_en|default:project.description }}
+                        </p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                {% if project.slug != 'eba-puan-botu' %}
+                <!-- Technical Details -->
+                <div class="animate-fade-in-up animation-delay-600">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+                        <i class="fas fa-cogs text-gray-600 dark:text-gray-400 mr-3"></i>
+                        Technical Details
+                    </h2>
+                    <div class="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 md:p-8">
+                        {% if project.technical_details_en or project.technical_details %}
+                        <div class="prose dark:prose-invert max-w-none">
+                            {{ project.technical_details_en|default:project.technical_details|safe }}
+                        </div>
+                        {% else %}
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+                            <div>
+                                <h3 class="font-semibold text-gray-900 dark:text-white mb-4">
+                                    <i class="fas fa-layer-group mr-2 text-blue-600"></i>
+                                    Frontend Technologies
+                                </h3>
+                                <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        HTML5 & CSS3
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        JavaScript ES6+
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        Tailwind CSS
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        Responsive Design
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h3 class="font-semibold text-gray-900 dark:text-white mb-4">
+                                    <i class="fas fa-server mr-2 text-purple-600"></i>
+                                    Backend Technologies
+                                </h3>
+                                <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                                    {% for tech in project.technologies_en|default:project.technologies|split:"," %}
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        {{ tech|trim }}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Related Projects -->
+{% if related_projects %}
+<section class="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                <i class="fas fa-lightbulb text-yellow-500 mr-3"></i>
+                Other Projects
+            </h2>
+            <p class="text-lg text-gray-600 dark:text-gray-300">
+                Take a look at the other projects I built
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for related_project in related_projects %}
+            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg card-hover overflow-hidden">
+                <!-- Project Image Placeholder -->
+                <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                    {% if related_project.image %}
+                        <img src="{{ related_project.image.url }}" alt="{{ related_project.title_en|default:related_project.title }}" class="w-full h-full object-cover">
+                    {% else %}
+                        <i class="fas fa-laptop-code text-white text-4xl"></i>
+                    {% endif %}
+                </div>
+
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                        {{ related_project.title_en|default:related_project.title }}
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
+                        {{ related_project.description_en|default:related_project.description|truncatewords:20 }}
+                    </p>
+
+                    <!-- Technologies -->
+                    <div class="mb-4">
+                        <div class="flex flex-wrap gap-2">
+                            {% for tech in related_project.technologies_en|default:related_project.technologies|split:","  %}
+                                {% if forloop.counter <= 3 %}
+                                <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm rounded-full">
+                                    {{ tech|trim }}
+                                </span>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- View Project Button -->
+                    <div class="flex space-x-4">
+                        <a href="{% url 'projects:detail_en' related_project.slug %}" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium text-sm transition-colors">
+                            View details →
+                        </a>
+                        {% if related_project.github_link %}
+                        <a href="{{ related_project.github_link }}" target="_blank" class="flex items-center text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors px-3">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="text-center mt-12">
+            <a href="/en/#projects" class="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors">
+                <i class="fas fa-th-large mr-2"></i>
+                View all projects
+            </a>
+        </div>
+    </div>
+</section>
+{% endif %}
+{% endblock %}

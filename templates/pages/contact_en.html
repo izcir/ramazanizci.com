@@ -1,0 +1,74 @@
+{% extends 'base_en.html' %}
+
+{% block title %}Contact - Ramazan Izci{% endblock %}
+
+{% block content %}
+<div class="pt-32 pb-12 bg-white dark:bg-gray-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="mb-6 p-4 rounded-lg {% if message.tags == 'success' %}bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200{% else %}bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                Contact
+            </h1>
+            <p class="text-lg text-gray-700 dark:text-gray-300">
+                Feel free to reach out to discuss my projects or just say hello via the channels below.
+            </p>
+        </div>
+        <div class="bg-white dark:bg-gray-900 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 p-8">
+            <div class="space-y-6">
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fas fa-envelope text-blue-600 dark:text-blue-400"></i>
+                    </div>
+                    <div>
+                        <p class="text-gray-900 dark:text-white font-medium">Email</p>
+                        <a href="mailto:ramazan.izcir@gmail.com" class="text-blue-600 dark:text-blue-400 hover:underline">
+                            ramazan.izcir@gmail.com
+                        </a>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fab fa-github text-blue-600 dark:text-blue-400"></i>
+                    </div>
+                    <div>
+                        <p class="text-gray-900 dark:text-white font-medium">GitHub</p>
+                        <a href="https://github.com/izcir" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">
+                            github.com/izcir
+                        </a>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fab fa-linkedin text-blue-600 dark:text-blue-400"></i>
+                    </div>
+                    <div>
+                        <p class="text-gray-900 dark:text-white font-medium">LinkedIn</p>
+                        <a href="https://linkedin.com/in/ramazanizci" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">
+                            linkedin.com/in/ramazanizci
+                        </a>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fab fa-telegram text-blue-600 dark:text-blue-400"></i>
+                    </div>
+                    <div>
+                        <p class="text-gray-900 dark:text-white font-medium">Telegram</p>
+                        <a href="https://t.me/izcipy" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">
+                            @izcipy
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

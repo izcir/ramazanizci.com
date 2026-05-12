@@ -1,0 +1,36 @@
+{% extends 'base_en.html' %}
+{% load static %}
+
+{% block title %}All Projects - Ramazan Izci{% endblock %}
+
+{% block content %}
+<section class="pt-28 pb-16 bg-white dark:bg-gray-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-end justify-between mb-10">
+      <div>
+        <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">All Projects</h1>
+        <p class="mt-2 text-gray-600 dark:text-gray-300">Selections from my active projects. Click a card for details.</p>
+      </div>
+      <a href="/en/" class="text-blue-600 dark:text-blue-400 hover:underline">Home</a>
+    </div>
+
+    {% if projects %}
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {% for p in projects %}
+          <a href="{% url 'projects:detail_en' p.slug %}" class="group rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-white/70 dark:bg-gray-800/60 hover:shadow-xl transition">
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">{{ p.title_en|default:p.title }}</h3>
+              <p class="mt-2 line-clamp-3 text-gray-700 dark:text-gray-300">{{ p.description_en|default:p.description }}</p>
+              {% if p.technologies_en|default:p.technologies %}
+              <p class="mt-3 text-xs text-gray-500 dark:text-gray-400">{{ p.technologies_en|default:p.technologies }}</p>
+              {% endif %}
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="text-gray-600 dark:text-gray-300">No projects found yet.</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

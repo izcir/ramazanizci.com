@@ -1,0 +1,576 @@
+{% extends 'base_en.html' %}
+{% load custom_filters %}
+
+{% block content %}
+{% if messages %}
+    <div class="fixed top-4 right-4 z-50 space-y-2">
+        {% for message in messages %}
+            <div class="max-w-sm p-4 rounded-lg shadow-lg {% if message.tags == 'success' %}bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 border border-green-200 dark:border-green-700{% else %}bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 border border-red-200 dark:border-red-700{% endif %}">
+                <div class="flex items-center">
+                    {% if message.tags == 'success' %}
+                        <i class="fas fa-check-circle mr-2"></i>
+                    {% else %}
+                        <i class="fas fa-exclamation-circle mr-2"></i>
+                    {% endif %}
+                    {{ message }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+<section id="hero" class="min-h-screen relative overflow-hidden bg-white dark:bg-black pt-32 md:pt-0">
+    <div class="absolute inset-0 bg-white dark:bg-black"></div>
+
+    <div class="absolute inset-0 opacity-30">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </div>
+      <div class="relative z-10 min-h-screen flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="flex justify-center lg:justify-start">
+                    <div class="relative">
+                        <div class="relative w-48 h-48 md:w-56 md:h-56 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 border-4 border-black/20 dark:border-white/20 flex items-center justify-center shadow-2xl profile-glow overflow-hidden">
+                            <img src="/media/profile.jfif" alt="Profile Photo" class="w-full h-full object-cover rounded-full" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center lg:text-left">
+                    <div class="mb-8">
+                        <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-black dark:text-white mb-6 tracking-tight">
+                            Ramazan Izci
+                        </h1>
+                        <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 mx-auto lg:mx-0 rounded-full mt-6"></div>
+
+                        <div class="flex justify-center lg:justify-start space-x-6 mt-8">
+                            <a href="mailto:ramazan.izcir@gmail.com" class="group">
+                                <div class="w-12 h-12 bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 dark:border-white/10 hover:bg-blue-600 hover:border-blue-600 transition-all duration-300 hover:scale-110 hover:shadow-lg">
+                                    <i class="fas fa-envelope text-gray-600 dark:text-gray-300 group-hover:text-white text-lg transition-colors"></i>
+                                </div>
+                            </a>
+                            <a href="https://github.com/izcir" target="_blank" class="group">
+                                <div class="w-12 h-12 bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 dark:border-white/10 hover:bg-gray-800 hover:border-gray-800 transition-all duration-300 hover:scale-110 hover:shadow-lg">
+                                    <i class="fab fa-github text-gray-600 dark:text-gray-300 group-hover:text-white text-lg transition-colors"></i>
+                                </div>
+                            </a>
+                            <a href="https://linkedin.com/in/ramazanizci" target="_blank" class="group">
+                                <div class="w-12 h-12 bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 dark:border-white/10 hover:bg-blue-700 hover:border-blue-700 transition-all duration-300 hover:scale-110 hover:shadow-lg">
+                                    <i class="fab fa-linkedin-in text-gray-600 dark:text-gray-300 group-hover:text-white text-lg transition-colors"></i>
+                                </div>
+                            </a>
+                            <a href="https://t.me/izcipy" target="_blank" class="group">
+                                <div class="w-12 h-12 bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 dark:border-white/10 hover:bg-blue-400 hover:border-blue-400 transition-all duration-300 hover:scale-110 hover:shadow-lg">
+                                    <i class="fab fa-telegram text-blue-600 dark:text-blue-400 group-hover:text-white text-lg transition-colors"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <a href="{% url 'projects:detail_en' 'sinavizcisi-com' %}" class="block bg-black/5 dark:bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-black/10 dark:border-white/10 mb-8 hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-300 group">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-400 mr-3 text-xl"></i>
+                                <h3 class="text-black dark:text-white text-lg font-semibold">Featured Project</h3>
+                            </div>
+                            <i class="fas fa-external-link-alt text-gray-400 text-sm group-hover:text-black dark:group-hover:text-white transition-colors"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-black dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors">Sinavizcisi.com</h4>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                            A platform that reached <strong class="text-black dark:text-white">100,000+ page views in the first two months</strong>,
+                            supporting students with data-driven and AI-assisted insights.
+                        </p>
+                        <div class="text-blue-600 dark:text-blue-300 text-sm font-medium">
+                            View details →
+                        </div>
+                    </a>
+
+                    <div class="mt-6 text-center">
+                        <a href="https://github.com/izcir/ramazanizci.com" target="_blank" class="inline-flex items-center text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors">
+                            <i class="fab fa-github mr-2"></i>
+                            Source code of this site
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="about" class="relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-white to-gray-50 dark:from-black dark:via-gray-800 dark:to-gray-900"></div>
+
+    <div class="relative z-10 py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                    About
+                </h2>
+                <p class="text-lg text-gray-700 dark:text-gray-200 max-w-3xl mx-auto">
+                    I am a third-year computer engineering student focused on data science and AI, and I love turning ideas into useful products.
+                </p>
+            </div><div class="grid grid-cols-1 lg:grid-cols-1 gap-12">
+    <div class="bg-white/90 dark:bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-white/20 shadow-lg">
+        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            <i class="fas fa-graduation-cap mr-3 text-blue-600 dark:text-blue-400"></i>
+            About
+        </h3>
+        <div class="space-y-6">
+            <p class="text-gray-700 dark:text-gray-200 leading-relaxed">
+                <strong>Hello, I am Ramazan Izci.</strong> I am a <strong>third-year computer engineering student</strong> at Ondokuz Mayis University. I am interested in software, data science, and AI, and I focus on improving myself and building real projects in these areas.
+            </p>
+            <p class="text-gray-700 dark:text-gray-200 leading-relaxed">
+                My software journey started in high school. Back then, I used programming mostly to make my own life easier. I built small tools to automate repetitive daily tasks. That approach taught me that software is not only a hobby but a <strong>real problem-solving tool</strong>.
+            </p>
+            <p class="text-gray-700 dark:text-gray-200 leading-relaxed">
+                In university, my focus shifted to larger projects that reach wider audiences. <strong>My most important work today, <span class='text-blue-600 dark:text-blue-400'>sinavizcisi.com</span></strong>, is an education platform that provides data-driven analysis and AI-powered insights for student preferences and exams. It grew rapidly with <strong>100,000+ page views</strong> in its first two months.
+            </p>
+            <p class="text-gray-700 dark:text-gray-200 leading-relaxed">
+                <strong>Today I use software not only to simplify my own work, but to build solutions that help thousands of people.</strong> My long-term goal is to create innovative and effective projects, especially in <strong>education technology and AI</strong>.
+            </p>
+            <div class="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-6 border border-blue-200 dark:border-blue-700 shadow">
+                <h4 class="text-xl font-bold text-blue-700 dark:text-blue-300 mb-2">
+                    <i class="fas fa-bolt mr-2"></i>What I am focused on now
+                </h4>
+                <p class="text-gray-700 dark:text-gray-200 leading-relaxed">
+                    My main focus is to grow Sinavizcisi into a comprehensive education platform not only for students, but also for teachers, educators, and coaches, with much deeper AI integration. Growing Sinavizcisi using its own ad revenue is both a motivating and exciting goal for me. In parallel, I continue to sharpen my skills in data science and AI.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+    </div>
+</section>
+
+<section id="skills" class="relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-700"></div>
+
+    <div class="relative z-10 py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                Skills
+            </h2>
+            <p class="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-8">
+                I keep learning new things and turn them into projects that work in the real world. My core focus is Python and data.
+            </p>
+
+            <div class="max-w-4xl mx-auto text-left bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-gray-700 mb-12">
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                    I have been working with Python for a long time and feel confident in it. I am experienced in object-oriented and asynchronous programming and have built projects using many libraries in the Python ecosystem. Thanks to Python's versatility, I can build projects in data analysis, web scraping, web development, desktop apps, and AI. On the modeling side, I have experience with regression and clustering models such as XGBoost and K-Means.
+                </p>
+                <button id="read-more-btn" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium transition-colors">
+                    Read more <i class="fas fa-chevron-down ml-1"></i>
+                </button>
+                <div id="full-text" class="hidden mt-4 space-y-4">
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        The main tools I use include Requests, Aiohttp, Asyncio, BeautifulSoup, Selenium, Playwright, Django, Flask, FastAPI, SQLAlchemy, Pandas, and NumPy. In web scraping, I have hands-on experience with bot-protected sites, login and cookie handling, bulk data collection, and proxy rotation.
+                    </p>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        While I used Flask and FastAPI for simple APIs in the past, I gained advanced experience with Django on larger projects. For example, I designed the entire database architecture for sinavizcisi.com in PostgreSQL, handled optimizations and background operations, and gained strong experience with large-scale data. I also use SQLite for fast and practical solutions in small to medium projects.
+                    </p>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Even though I do not consider myself a UI expert, I produced effective, user-focused interfaces for sinavizcisi.com and this portfolio using a mix of my own knowledge, AI-assisted tools, and ready-made designs.
+                    </p>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        I also used open-source AI models like BERT and LLaMA for sentiment analysis and text classification of university reviews on sinavizcisi.com. With NLP libraries such as Hugging Face Transformers, I built systems that can understand text and produce sentiment and category outputs.
+                    </p>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        In addition, I worked with the C and Ruby languages as part of university courses. While I did not focus deeply on them, I gained basic practical experience.
+                    </p>
+                </div>
+            </div>
+        </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for skill in skills %}
+            <div class="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group animate-fade-in-up" style="animation-delay: {{ forloop.counter0|mul:100 }}ms;">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 rounded-lg flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="{{ skill.icon }} text-blue-600 dark:text-blue-400 text-xl"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{{ skill.name_en|default:skill.name }}</h3>
+                        <span class="text-sm text-gray-600 dark:text-gray-400 capitalize">
+                            {% if skill.level == 'beginner' %}Beginner{% elif skill.level == 'intermediate' %}Intermediate{% elif skill.level == 'advanced' %}Advanced{% else %}Expert{% endif %}
+                        </span>
+                    </div>
+                </div>
+
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-sm">{{ skill.description_en|default:skill.description }}</p>
+            </div>
+            {% empty %}
+            <div class="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-shadow">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fab fa-python text-blue-600 dark:text-blue-400 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Python</h3>
+                        <span class="text-sm text-gray-600 dark:text-gray-400">Advanced</span>
+                    </div>
+                </div>
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">Advanced Python development with OOP and async programming</p>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-shadow">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fas fa-globe text-blue-600 dark:text-blue-400 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Web Scraping</h3>
+                        <span class="text-sm text-gray-600 dark:text-gray-400">Advanced</span>
+                    </div>
+                </div>
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">Data extraction from bot-protected sites with Requests, BeautifulSoup, Selenium, Playwright</p>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-shadow">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fas fa-chart-bar text-blue-600 dark:text-blue-400 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Data Analysis</h3>
+                        <span class="text-sm text-gray-500 dark:text-gray-400">Intermediate</span>
+                    </div>
+                </div>                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">Data cleaning and analysis with Pandas and NumPy</p>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-shadow">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fab fa-django text-blue-600 dark:text-blue-400 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Django</h3>
+                        <span class="text-sm text-gray-600 dark:text-gray-400">Advanced</span>
+                    </div>
+                </div>
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">Building scalable web applications with PostgreSQL</p>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-shadow">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fas fa-database text-blue-600 dark:text-blue-400 text-xl"></i>
+                    </div>                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">PostgreSQL</h3>
+                        <span class="text-sm text-gray-600 dark:text-gray-400">Intermediate</span>
+                    </div>
+                </div>
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">Efficient schema design and optimization</p>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-shadow">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fab fa-git-alt text-blue-600 dark:text-blue-400 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Git/GitHub</h3>
+                        <span class="text-sm text-gray-600 dark:text-gray-400">Advanced</span>
+                    </div>
+                </div>
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">Workflow management and collaborative development experience</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section id="projects" class="relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"></div>
+
+    <div class="relative z-10 py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                Projects
+            </h2>
+            <p class="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
+                Projects I built to make my own life easier and to create value for others. (Sinavizcisi being the flagship)
+            </p>
+            <div class="mt-6 flex items-center justify-center gap-4">
+                <div class="inline-block bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg px-4 py-2 border border-blue-200 dark:border-blue-700 shadow-sm">
+                    <a href="https://github.com/izcir/ramazanizci.com" target="_blank" class="inline-flex items-center text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                        <i class="fab fa-github mr-2 text-blue-600 dark:text-blue-400"></i>
+                        The source code of this site is also one of my projects
+                        <i class="fas fa-external-link-alt ml-2 text-xs opacity-70"></i>
+                    </a>
+                </div>
+                <a href="{% url 'projects:list_en' %}" class="inline-flex items-center px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 font-medium shadow">
+                    <i class="fas fa-th-large mr-2"></i> All Projects
+                </a>
+            </div>
+        </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for project in projects %}            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-xl border border-gray-100 dark:border-gray-800 project-card-enhanced overflow-hidden hover:shadow-2xl transition-all duration-300">
+                <div class="h-0 pb-[56.25%] relative bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                    {% if project.image %}
+                        <img src="{{ project.image.url }}" alt="{{ project.title_en|default:project.title }}" class="absolute inset-0 w-full h-full object-cover rounded-t-xl" style="aspect-ratio: 16/9;" />
+                    {% else %}
+                        <img src="/media/project_cover_{{ forloop.counter }}.jfif" alt="Project Cover" class="absolute inset-0 w-full h-full object-cover rounded-t-xl" style="aspect-ratio: 16/9;" />
+                    {% endif %}
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                        <a href="{% url 'projects:detail_en' project.slug %}" class="btn-detail">
+                            <i class="fas fa-eye mr-2"></i>View details
+                        </a>
+                    </div>
+                </div>
+
+                <div class="p-6 relative z-10">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                        {{ project.title_en|default:project.title }}
+                    </h3>
+                    <p class="text-gray-700 dark:text-gray-300 mb-4 line-clamp-3 leading-relaxed">
+                        {{ project.description_en|default:project.description|truncatewords:25 }}
+                    </p>
+
+                    <div class="mb-6">
+                        <div class="flex flex-wrap gap-2">
+                            {% for tech in project.technologies_en|default:project.technologies|split:"," %}
+                                {% if forloop.counter <= 4 %}
+                                <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm rounded-full">
+                                    {{ tech|trim }}
+                                </span>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <div class="flex space-x-3">
+                            {% if project.github_link %}
+                            <a href="{{ project.github_link }}" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
+                                <i class="fab fa-github text-lg"></i>
+                            </a>
+                            {% endif %}
+                            {% if project.demo_link %}
+                            <a href="{{ project.demo_link }}" target="_blank" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors p-2 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20">
+                                <i class="fas fa-external-link-alt text-lg"></i>
+                            </a>
+                            {% endif %}
+                        </div>                        <a href="{% url 'projects:detail_en' project.slug %}" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium text-sm transition-colors">
+                            View details →
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-span-full text-center py-12">
+                <p class="text-gray-500 dark:text-gray-400 text-lg">
+                    Projects are loading...
+                </p>
+                <a href="{% url 'projects:list_en' %}" class="inline-flex items-center px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 font-medium shadow mt-4">
+                    <i class="fas fa-th-large mr-2"></i> All Projects
+                </a>
+            </div>            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-gray-100 to-white dark:from-gray-700 dark:via-gray-800 dark:to-gray-900"></div>
+
+    <div class="relative z-10 py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                Contact
+            </h2>
+            <p class="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
+                Feel free to reach out to discuss projects or just say hello.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-12">
+            <div>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+                    Contact Information
+                </h3>
+
+                <div class="space-y-4 mb-8">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-envelope text-blue-600 dark:text-blue-400"></i>
+                        </div>                        <div>
+                            <p class="text-gray-900 dark:text-white font-medium">Email</p>
+                            <a href="mailto:ramazan.izcir@gmail.com" class="text-blue-600 dark:text-blue-400 hover:underline">
+                                ramazan.izcir@gmail.com
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fab fa-github text-blue-600 dark:text-blue-400"></i>
+                        </div>
+                        <div>
+                            <p class="text-gray-900 dark:text-white font-medium">GitHub</p>
+                            <a href="https://github.com/izcir" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">
+                                github.com/izcir
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fab fa-linkedin text-blue-600 dark:text-blue-400"></i>
+                        </div>
+                        <div>
+                            <p class="text-gray-900 dark:text-white font-medium">LinkedIn</p>
+                            <a href="https://linkedin.com/in/ramazanizci" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">
+                                linkedin.com/in/ramazanizci
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fab fa-telegram text-blue-600 dark:text-blue-400"></i>
+                        </div>
+                        <div>
+                            <p class="text-gray-900 dark:text-white font-medium">Telegram</p>
+                            <a href="https://t.me/izcipy" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">
+                                @izcipy
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .btn-primary {
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .btn-primary:hover {
+        background: linear-gradient(135deg, #2563eb, #7c3aed);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-secondary {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+    }
+
+    .line-clamp-3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        line-clamp: 3;
+    }
+
+    .btn-hero-primary {
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        color: white;
+        padding: 16px 32px;
+        border-radius: 12px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-hero-primary:hover {
+        background: linear-gradient(135deg, #2563eb, #7c3aed);
+        transform: translateY(-3px);
+        box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
+    }
+      .profile-glow {
+        box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+        animation: profileGlow 4s ease-in-out infinite;
+    }
+
+    @keyframes profileGlow {
+        0%, 100% {
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.4), 0 0 60px rgba(59, 130, 246, 0.2);
+        }
+        50% {
+            box-shadow: 0 0 40px rgba(139, 92, 246, 0.6), 0 0 80px rgba(139, 92, 246, 0.3);
+        }
+    }
+
+    .scroll-indicator {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .scroll-arrow {
+        width: 40px;
+        height: 40px;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .scroll-indicator:hover .scroll-arrow {
+        border-color: rgba(59, 130, 246, 0.8);
+        background-color: rgba(59, 130, 246, 0.1);
+    }
+
+    .scroll-text {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 14px;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    .scroll-indicator:hover .scroll-text {
+        color: rgba(59, 130, 246, 0.9);
+    }
+
+    @media (max-width: 1024px) {
+        .btn-hero-primary {
+            padding: 14px 28px;
+            font-size: 16px;
+        }
+
+        .scroll-indicator {
+            display: none;
+        }
+    }
+</style>
+{% endblock %}
