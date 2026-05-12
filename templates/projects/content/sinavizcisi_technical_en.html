@@ -1,0 +1,295 @@
+<div class="technical-details-content">
+    <div class="architecture-section">
+        <h3 class="tech-title">
+            <i class="fas fa-sitemap text-blue-500 mr-2"></i>
+            System Architecture
+        </h3>
+        <div class="architecture-grid">
+            <div class="arch-component">
+                <div class="component-header">
+                    <i class="fas fa-database text-blue-600"></i>
+                    <h4>Data Layer</h4>
+                </div>
+                <ul class="component-list">
+                    <li>YOK Atlas data (high schools, departments, quotas, base scores)</li>
+                    <li>Yearly statistics for high schools and departments</li>
+                    <li>User reviews and social data collected from the web</li>
+                    <li>Database: PostgreSQL (for relational data)</li>
+                    <li>Data cleaning and checks: Pandas</li>
+                </ul>
+            </div>
+
+            <div class="arch-component">
+                <div class="component-header">
+                    <i class="fas fa-server text-green-600"></i>
+                    <h4>Backend</h4>
+                </div>
+                <ul class="component-list">
+                    <li>Django + Django REST Framework</li>
+                    <li>Async data fetching: aiohttp + asyncio</li>
+                    <li>API services: high schools, departments, quotas, base scores, reviews</li>
+                    <li>Security: rate limiting, caching, query optimization</li>
+                </ul>
+            </div>
+
+            <div class="arch-component">
+                <div class="component-header">
+                    <i class="fas fa-robot text-purple-600"></i>
+                    <h4>AI / Analytics</h4>
+                </div>
+                <ul class="component-list">
+                    <li>Review analysis: sentiment and content analysis of user reviews</li>
+                    <li>Results are served to the frontend via API</li>
+                </ul>
+            </div>
+
+            <div class="arch-component">
+                <div class="component-header">
+                    <i class="fas fa-desktop text-orange-600"></i>
+                    <h4>Frontend</h4>
+                </div>
+                <ul class="component-list">
+                    <li>Technologies: HTML, CSS, JavaScript</li>
+                    <li>University and high school filtering and listings</li>
+                    <li>Charts and tables (Chart.js or similar)</li>
+                    <li>Responsive design</li>
+                    <li>Performance: minimal and fast, data loading with lazy loading</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="data-flow-section">
+        <h3 class="tech-title">
+            <i class="fas fa-exchange-alt text-indigo-500 mr-2"></i>
+            Data Flow & Processing
+        </h3>
+        <div class="flow-steps">
+            <div class="flow-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Data Collection</h4>
+                    <p>Automated data collection from multiple sources with Selenium, Playwright, and Requests</p>
+                </div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Normalization</h4>
+                    <p>Cleaning and standardization with Pandas</p>
+                </div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>AI Processing</h4>
+                    <p>Analysis and prediction with Transformers</p>
+                </div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>Serving</h4>
+                    <p>Data delivery to users via the Django API</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.technical-details-content {
+    max-width: 64rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.5rem;
+    gap: 2rem;
+}
+
+.tech-title {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+
+@media (min-width: 768px) {
+    .tech-title {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+}
+
+.tech-title {
+    font-weight: 600;
+    color: rgb(31 41 55);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.dark .tech-title {
+    color: rgb(229 231 235);
+}
+
+.architecture-section {
+    background-color: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    border-width: 1px;
+    border-color: rgb(229 231 235);
+}
+
+.dark .architecture-section {
+    background-color: rgb(31 41 55);
+    border-color: rgb(55 65 81);
+}
+
+.architecture-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .architecture-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.arch-component {
+    background-color: rgb(249 250 251);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    border-width: 1px;
+    border-color: rgb(229 231 235);
+}
+
+.dark .arch-component {
+    background-color: rgb(55 65 81);
+    border-color: rgb(75 85 99);
+}
+
+.component-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.component-header i {
+    font-size: 1.25rem;
+}
+
+.component-header h4 {
+    font-weight: 600;
+    color: rgb(31 41 55);
+}
+
+.dark .component-header h4 {
+    color: rgb(229 231 235);
+}
+
+.component-list {
+    gap: 0.5rem;
+}
+
+.component-list li {
+    font-size: 0.875rem;
+    color: rgb(75 85 99);
+    display: flex;
+    align-items: flex-start;
+}
+
+.dark .component-list li {
+    color: rgb(156 163 175);
+}
+
+.component-list li::before {
+    content: "•";
+    color: rgb(59 130 246);
+    font-weight: 700;
+    margin-right: 0.5rem;
+}
+
+.data-flow-section {
+    background-image: linear-gradient(to bottom right, rgb(238 242 255), rgb(245 243 255));
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    border-width: 1px;
+    border-color: rgb(196 181 253);
+}
+
+.dark .data-flow-section {
+    background-image: linear-gradient(to bottom right, rgb(31 41 55), rgb(55 65 81));
+    border-color: rgb(75 85 99);
+}
+
+.flow-steps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .flow-steps {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+        max-width: 100%;
+    }
+}
+
+.flow-step {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    border-width: 1px;
+    border-color: rgb(229 231 235);
+    flex: 1 1 0%;
+    min-width: 200px;
+    max-width: 250px;
+}
+
+.dark .flow-step {
+    background-color: rgb(31 41 55);
+    border-color: rgb(75 85 99);
+}
+
+.step-number {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: rgb(59 130 246);
+    margin-bottom: 0.5rem;
+}
+
+.step-content h4 {
+    font-weight: 600;
+    color: rgb(31 41 55);
+    margin-bottom: 0.25rem;
+}
+
+.dark .step-content h4 {
+    color: rgb(229 231 235);
+}
+
+.step-content p {
+    color: rgb(75 85 99);
+    font-size: 0.9rem;
+}
+
+.dark .step-content p {
+    color: rgb(156 163 175);
+}
+
+.flow-arrow {
+    font-size: 1.5rem;
+    color: rgb(99 102 241);
+}
+</style>

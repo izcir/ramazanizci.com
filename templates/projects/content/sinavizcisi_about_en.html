@@ -1,0 +1,470 @@
+<div class="project-about-content">
+    <div class="hero-section">
+        <h2 class="project-title">
+            <i class="fas fa-graduation-cap text-blue-600 dark:text-blue-400 mr-3"></i>
+            Sinavizcisi.com
+        </h2>
+        <p class="project-subtitle">A Platform That Connects YKS Data with AI</p>
+    </div>
+
+    <div class="content-section">
+        <div class="intro-box">
+            <h3 class="section-title">
+                <i class="fas fa-info-circle text-emerald-500 mr-2"></i>
+                About the Platform
+            </h3>
+            <p class="intro-text">
+                Sinavizcisi.com is a comprehensive web platform that collects and analyzes YKS placement data
+                and helps students make <strong>data-driven decisions</strong> during the preference process.
+                But this project is much more than a website for me; the website is only a tool to present the data.
+                The real journey includes extensive data collection before the site existed, cleaning and analyzing
+                the data, applying open-source LLMs to parts of it, and creating brand-new insights that cannot be
+                found anywhere else. <br><br>
+
+                This project became my biggest work that combines my experience in web development, data science,
+                and AI. It was extremely valuable for me both in experience and in return. On the visibility side,
+                we gained more momentum than expected in a short time.
+                <br><br>
+                <strong>Feedback from the site</strong> included requests to use our data in other projects,
+                direct requests for our datasets, and especially <strong>a dean contacting us directly</strong>.
+                Our data was also used in a district governorate presentation, showing the concrete impact of this work.
+            </p>
+        </div>
+
+        <div class="visibility-box">
+            <h3 class="section-title">
+                <i class="fas fa-chart-line text-blue-600 mr-2"></i>
+                Performance and Visibility
+            </h3>
+            <p class="visibility-text">
+                We first launched the site on <strong>July 18, 2025</strong>. About two weeks later, when Google
+                began indexing our pages, we saw a sharp rise <strong>without any ads</strong>, reaching
+                <strong>over 8,000 page views per day</strong>. This growth came purely from organic search traffic.
+            </p>
+            <p class="visibility-text">
+                While views dropped over time, traffic stayed in the <strong>2-3 thousand per day</strong> range during
+                exam season. After the exam period, we had a stable six-month window between
+                <strong>October 2025 and March 2026</strong> and achieved <strong>over 200,000</strong> page views.
+                Sustaining visibility for about <strong>10 months</strong> without advertising shows that this project
+                meets a real need and that we present data in a useful, clear way. Google Search Console data also
+                confirms strong search performance: in <strong>August 2025</strong> alone, we had <strong>700,000 impressions</strong>.
+                Achieving an average position of <strong>14.9</strong> in such a large search volume indicates above-average
+                ranking. We ranked high on many high school pages; at our peak, for the search "Galatasaray High School",
+                we appeared right after the school's own page. While this visibility has softened for some school names,
+                we still rank around 4th-5th for searches like "Galatasaray High School placement results".
+            </p>
+            <div class="visibility-grid">
+                <figure class="visibility-card">
+                    <img src="/media/2_ay_analiz.PNG" alt="Google Analytics chart for the first 2 months" loading="lazy">
+                    <figcaption>
+                        <span class="caption-title">July 18 - September 18, 2025 · Google Analytics</span>
+                        <span class="caption-text">100,000+ views in the first two months after launch.</span>
+                    </figcaption>
+                </figure>
+                <figure class="visibility-card">
+                    <img src="/media/6_ay_analiz.PNG" alt="Google Analytics 6-month views chart" loading="lazy">
+                    <figcaption>
+                        <span class="caption-title">October 1, 2025 - March 31, 2026 · Google Analytics</span>
+                        <span class="caption-text">Stable traffic after exam season with 200K+ views.</span>
+                    </figcaption>
+                </figure>
+                <figure class="visibility-card">
+                    <img src="/media/search_console_1ay.PNG" alt="Google Search Console monthly performance" loading="lazy">
+                    <figcaption>
+                        <span class="caption-title">August 1 - 31, 2025 · Google Search Console</span>
+                        <span class="caption-text">700K impressions and 14.9 average position in high school searches.</span>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="lightbox-backdrop" id="visibility-lightbox" aria-hidden="true">
+                <button type="button" class="lightbox-close" id="visibility-lightbox-close" aria-label="Close">×</button>
+                <div class="lightbox-content" role="dialog" aria-modal="true">
+                    <img id="visibility-lightbox-image" src="" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="achievement-box">
+            <h3 class="section-title">
+                <i class="fas fa-trophy text-gold-500 mr-2"></i>
+                Achievements & Impact
+            </h3>
+            <div class="achievement-stats">
+                <div class="stat-item">
+                    <div class="stat-number">100,000+ in the first 2 months</div>
+                    <div class="stat-label">Page Views</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">14,000+</div>
+                    <div class="stat-label">High Schools</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5M+</div>
+                    <div class="stat-label">Placement Records</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.project-about-content {
+    max-width: 72rem;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .project-about-content {
+        padding: 2.5rem 2rem;
+    }
+}
+
+.hero-section {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.project-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: rgb(17 24 39);
+    margin-bottom: 1rem;
+}
+
+.dark .project-title {
+    color: rgb(255 255 255);
+}
+
+@media (min-width: 768px) {
+    .project-title {
+        font-size: 2.25rem;
+    }
+}
+
+.project-subtitle {
+    font-size: 1.125rem;
+    color: rgb(71 85 105);
+    font-weight: 500;
+}
+
+.dark .project-subtitle {
+    color: rgb(209 213 219);
+}
+
+@media (min-width: 768px) {
+    .project-subtitle {
+        font-size: 1.25rem;
+    }
+}
+
+.content-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: rgb(30 41 59);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.dark .section-title {
+    color: rgb(229 231 235);
+}
+
+@media (min-width: 768px) {
+    .section-title {
+        font-size: 1.5rem;
+    }
+}
+
+.intro-box, .story-box, .achievement-box {
+    background-color: rgb(249 250 251);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 8px 18px -14px rgba(15, 23, 42, 0.5);
+    border: 1px solid rgb(229 231 235);
+}
+
+.dark .intro-box, .dark .story-box, .dark .achievement-box {
+    background-color: rgb(30 41 59);
+    border-color: rgb(71 85 105);
+}
+
+.intro-text, .story-text {
+    color: rgb(51 65 85);
+    line-height: 1.625;
+    font-size: 1rem;
+}
+
+.dark .intro-text, .dark .story-text {
+    color: rgb(209 213 219);
+}
+
+@media (min-width: 768px) {
+    .intro-text, .story-text {
+        font-size: 1.125rem;
+    }
+}
+
+.visibility-box {
+    background-color: rgb(249 250 251);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 8px 18px -14px rgba(15, 23, 42, 0.5);
+    border: 1px solid rgb(229 231 235);
+}
+
+.dark .visibility-box {
+    background-color: rgb(30 41 59);
+    border-color: rgb(71 85 105);
+}
+
+.visibility-text {
+    color: rgb(51 65 85);
+    line-height: 1.625;
+    font-size: 1rem;
+}
+
+.dark .visibility-text {
+    color: rgb(209 213 219);
+}
+
+@media (min-width: 768px) {
+    .visibility-text {
+        font-size: 1.125rem;
+    }
+}
+
+.visibility-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.25rem;
+}
+
+.visibility-card {
+    background-color: rgb(255 255 255);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    border: 1px solid rgb(229 231 235);
+    box-shadow: 0 8px 18px -14px rgba(15, 23, 42, 0.5);
+}
+
+.dark .visibility-card {
+    background-color: rgb(30 41 59);
+    border-color: rgb(71 85 105);
+}
+
+.visibility-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    border: 1px solid rgb(229 231 235);
+    cursor: zoom-in;
+}
+
+.dark .visibility-card img {
+    border-color: rgb(55 65 81);
+}
+
+.visibility-card figcaption {
+    margin-top: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.95rem;
+    color: rgb(71 85 105);
+}
+
+.dark .visibility-card figcaption {
+    color: rgb(156 163 175);
+}
+
+.caption-title {
+    font-weight: 600;
+    color: rgb(30 41 59);
+}
+
+.dark .caption-title {
+    color: rgb(229 231 235);
+}
+
+.caption-text {
+    color: rgb(71 85 105);
+}
+
+.dark .caption-text {
+    color: rgb(156 163 175);
+}
+
+.lightbox-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.78);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms ease;
+    z-index: 50;
+}
+
+.lightbox-backdrop.is-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox-content {
+    max-width: min(96vw, 1100px);
+    max-height: 90vh;
+}
+
+.lightbox-content img {
+    width: 100%;
+    height: auto;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 0.75rem;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.35);
+    background-color: rgb(255 255 255);
+}
+
+.dark .lightbox-content img {
+    background-color: rgb(17 24 39);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(15, 23, 42, 0.6);
+    color: #fff;
+    font-size: 1.5rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 200ms ease;
+}
+
+.lightbox-close:hover {
+    background: rgba(15, 23, 42, 0.8);
+}
+
+.achievement-stats {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .achievement-stats {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.stat-item {
+    text-align: center;
+    padding: 1rem;
+    background-color: rgb(249 250 251);
+    border-radius: 0.5rem;
+    border: 1px solid rgb(229 231 235);
+}
+
+.dark .stat-item {
+    background-color: rgb(30 41 59);
+    border-color: rgb(71 85 105);
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgb(30 64 175);
+    margin-bottom: 0.5rem;
+}
+
+.dark .stat-number {
+    color: rgb(147 197 253);
+}
+
+@media (min-width: 768px) {
+    .stat-number {
+        font-size: 1.875rem;
+    }
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgb(107 114 128);
+}
+
+.dark .stat-label {
+    color: rgb(209 213 219);
+}
+
+.text-gold-500 {
+    color: #f59e0b;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const lightbox = document.getElementById('visibility-lightbox');
+    const lightboxImage = document.getElementById('visibility-lightbox-image');
+    const closeButton = document.getElementById('visibility-lightbox-close');
+    const images = document.querySelectorAll('.visibility-card img');
+
+    if (!lightbox || !lightboxImage || !closeButton || images.length === 0) {
+        return;
+    }
+
+    const openLightbox = (image) => {
+        lightboxImage.src = image.src;
+        lightboxImage.alt = image.alt || 'Image';
+        lightbox.classList.add('is-open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeLightbox = () => {
+        lightbox.classList.remove('is-open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        lightboxImage.src = '';
+        document.body.style.overflow = '';
+    };
+
+    images.forEach((image) => {
+        image.addEventListener('click', () => openLightbox(image));
+    });
+
+    closeButton.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (event) => {
+        if (event.target === lightbox) {
+            closeLightbox();
+        }
+    });
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && lightbox.classList.contains('is-open')) {
+            closeLightbox();
+        }
+    });
+});
+</script>

@@ -1,0 +1,113 @@
+<div class="project-about-content">
+  <div class="hero-section">
+    <h2 class="project-title">
+      <i class="fas fa-database text-blue-600 dark:text-blue-400 mr-3"></i>
+      Turkish University Department Data (2019-2024)
+    </h2>
+    <p class="project-subtitle">A cleaned, standardized dataset collected from YOK Atlas and OSYM.</p>
+  </div>
+
+  <div class="content-section intro-box">
+    <h3 class="section-title">
+      <i class="fas fa-bullseye text-emerald-500 mr-2"></i>
+      Goal (Short)
+    </h3>
+    <p class="intro-text">
+      This dataset brings together university department data from 2019-2024 into a single pool
+      and cleans it to unify naming and spelling differences into a consistent structure. This makes
+      research, application development, and quick table-based analysis far easier. For 2025, only
+      program lists are available for now; score and other statistical fields are intentionally left empty.
+      The dataset is published on both GitHub and Kaggle, and I also provide a detailed analysis flow
+      with notebooks on the Kaggle page.
+    </p>
+  </div>
+
+  <div class="content-section story-box">
+    <h3 class="section-title">
+      <i class="fas fa-chart-bar text-indigo-500 mr-2"></i>
+      Summary Stats
+    </h3>
+    <ul class="tech-list">
+      <li>128,352 rows / 32,505 programs (program_code)</li>
+      <li>235 universities / 733 department names</li>
+      <li>Data is used on sinavizcisi.com</li>
+    </ul>
+  </div>
+
+  <div class="content-section story-box">
+    <h3 class="section-title">
+      <i class="fas fa-chart-line text-blue-500 mr-2"></i>
+      Kaggle Performance
+    </h3>
+    <p class="intro-text">
+      The dataset received strong feedback on Kaggle and was used as a reference dataset in other projects,
+      which was very meaningful for me. In total, it reached <strong>3,500+ views</strong> and <strong>600+ downloads</strong>.
+    </p>
+  </div>
+
+  <div class="content-section story-box">
+    <h3 class="section-title">
+      <i class="fas fa-book-open text-purple-500 mr-2"></i>
+      Kaggle Notebooks
+    </h3>
+    <ul class="tech-list">
+      <li>
+        <strong>
+          <a href="https://www.kaggle.com/code/ramazanizci/eda-exploring-turkish-university-admissions" target="_blank" rel="noopener">
+            [EDA] Exploring Turkish University Admissions (2019-2024)
+          </a>
+        </strong>:
+        Yearly quota and enrollment trends, most competitive departments, field-based popularity shifts,
+        and public vs private university comparisons.
+      </li>
+      <li>
+        <strong>
+          <a href="https://www.kaggle.com/code/ramazanizci/analysis-data-quality-consistency-report-tr" target="_blank" rel="noopener">
+            YOK Atlas Dataset - Consistency and Data Quality Analysis
+          </a>
+        </strong>:
+        Quota-enrollment consistency, gender anomalies, missing data patterns, and detailed analysis of
+        calculation differences.
+      </li>
+    </ul>
+  </div>
+
+  <div class="content-section">
+    <a class="btn-primary inline-flex items-center px-4 py-2 rounded-lg text-white" href="https://github.com/izcir/turkish-university-admissions-dataset" target="_blank" rel="noopener">
+      <i class="fab fa-github mr-2"></i> Go to GitHub Repo
+      <i class="fas fa-external-link-alt ml-2 text-xs opacity-80"></i>
+    </a>
+  </div>
+
+  <div class="content-section">
+    <a class="btn-primary inline-flex items-center px-4 py-2 rounded-lg text-white" href="https://www.kaggle.com/datasets/ramazanizci/turkish-university-admissions" target="_blank" rel="noopener">
+      <i class="fab fa-kaggle mr-2"></i> Kaggle Page
+      <i class="fas fa-external-link-alt ml-2 text-xs opacity-80"></i>
+    </a>
+  </div>
+</div>
+
+<style>
+.project-about-content { max-width: 72rem; width: 100%; margin: 0 auto; padding: 2rem 1.5rem; display: flex; flex-direction: column; gap: 2rem; }
+@media (min-width: 1024px){ .project-about-content{ padding: 2.5rem 2rem; } }
+.hero-section { text-align: center; }
+.project-title { font-size: 1.875rem; font-weight: 700; color: rgb(17 24 39); margin-bottom: .5rem; }
+.dark .project-title { color: #fff; }
+@media (min-width: 768px){ .project-title{ font-size: 2.25rem; } }
+.project-subtitle { font-size: 1.075rem; color: rgb(71 85 105); font-weight: 500; }
+.dark .project-subtitle { color: rgb(209 213 219); }
+.content-section { display: flex; flex-direction: column; gap: .75rem; }
+.section-title { font-size: 1.25rem; font-weight: 600; color: rgb(30 41 59); display: flex; align-items: center; }
+.dark .section-title { color: rgb(229 231 235); }
+@media (min-width: 768px){ .section-title{ font-size: 1.5rem; } }
+.intro-box, .story-box { background: rgb(249 250 251); border-radius: .75rem; padding: 1.25rem; box-shadow: 0 8px 18px -14px rgb(15 23 42 / .5); border: 1px solid rgb(229 231 235); }
+.dark .intro-box, .dark .story-box { background: rgb(30 41 59); border-color: rgb(71 85 105); }
+.intro-text { color: rgb(51 65 85); line-height: 1.6; font-size: 1rem; }
+.dark .intro-text { color: rgb(209 213 219); }
+.tech-list { display: grid; gap: .45rem; list-style: none; padding: 0; margin: 0; }
+.tech-list li { font-size: .96rem; color: rgb(71 85 105); display: flex; }
+.dark .tech-list li { color: rgb(156 163 175); }
+.tech-list li::before { content: "•"; color: rgb(59 130 246); font-weight: 700; margin-right: .5rem; }
+.btn-primary { background: linear-gradient(135deg, #3b82f6, #8b5cf6); border: 1px solid rgba(255,255,255,.15); }
+.btn-primary:hover { filter: brightness(1.05); }
+</style>

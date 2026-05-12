@@ -1,0 +1,202 @@
+<div class="project-about-content">
+    <div class="hero-section">
+        <h2 class="project-title">
+            <i class="fas fa-graduation-cap text-green-600 dark:text-green-400 mr-3"></i>
+            YokAPI
+        </h2>
+        <p class="project-subtitle">An API Layer That Normalizes YOK Data</p>
+    </div>
+
+    <div class="content-section">
+        <div class="intro-box">
+            <h3 class="section-title">
+                <i class="fas fa-info-circle text-emerald-500 mr-2"></i>
+                About the Project
+            </h3>
+            <p class="intro-text">
+                YokAPI is a data layer designed for developers that serves <strong>YOK Atlas</strong> data through a
+                <strong>standardized API</strong>. It normalizes the year-to-year inconsistencies and scattered structure
+                of YOK Atlas, delivering <strong>standardized JSON</strong> for fast, async bulk data fetching.
+                By unifying education data from different sources into a consistent format, it makes integration
+                in other projects much easier.
+            </p>
+        </div>
+
+        <div class="code-example-box">
+            <h3 class="section-title">
+                <i class="fas fa-code text-indigo-500 mr-2"></i>
+                Example Usage
+            </h3>
+            <div class="code-block">
+                <pre><code class="language-python">
+from YokAPI import Lisans, Onlisans
+import asyncio
+
+async def main():
+    async with Lisans(program_id=108210665, year=2024) as lisans:
+        # Get normalized data
+        data = await lisans.get_program_data()
+        print(data)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="impact-box">
+            <h3 class="section-title">
+                <i class="fas fa-chart-line text-green-500 mr-2"></i>
+                Project Impact
+            </h3>
+            <p class="impact-text">
+                YokAPI powers the core data layer of Sinavizcisi.com and enables other developers
+                to access education data with ease.
+            </p>
+        </div>
+    </div>
+</div>
+
+<style>
+.project-about-content {
+    max-width: 72rem;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .project-about-content {
+        padding: 2.5rem 2rem;
+    }
+}
+
+.hero-section {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.project-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: rgb(17 24 39);
+    margin-bottom: 1rem;
+}
+
+.dark .project-title {
+    color: rgb(255 255 255);
+}
+
+@media (min-width: 768px) {
+    .project-title {
+        font-size: 2.25rem;
+    }
+}
+
+.project-subtitle {
+    font-size: 1.125rem;
+    color: rgb(71 85 105);
+    font-weight: 500;
+}
+
+.dark .project-subtitle {
+    color: rgb(209 213 219);
+}
+
+@media (min-width: 768px) {
+    .project-subtitle {
+        font-size: 1.25rem;
+    }
+}
+
+.content-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: rgb(30 41 59);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.dark .section-title {
+    color: rgb(229 231 235);
+}
+
+@media (min-width: 768px) {
+    .section-title {
+        font-size: 1.5rem;
+    }
+}
+
+.intro-box, .problem-solution-box, .impact-box {
+    background-color: rgb(249 250 251);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 8px 18px -14px rgba(15, 23, 42, 0.5);
+    border: 1px solid rgb(229 231 235);
+}
+
+.dark .intro-box, .dark .problem-solution-box, .dark .impact-box {
+    background-color: rgb(30 41 59);
+    border-color: rgb(71 85 105);
+}
+
+.intro-text, .problem-text, .impact-text {
+    color: rgb(51 65 85);
+    line-height: 1.625;
+    font-size: 1rem;
+}
+
+.dark .intro-text, .dark .problem-text, .dark .impact-text {
+    color: rgb(209 213 219);
+}
+
+@media (min-width: 768px) {
+    .intro-text, .problem-text, .impact-text {
+        font-size: 1.125rem;
+    }
+}
+
+.code-example-box {
+    background-color: rgb(249 250 251);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 8px 18px -14px rgba(15, 23, 42, 0.5);
+    border: 1px solid rgb(229 231 235);
+}
+
+.dark .code-example-box {
+    background-color: rgb(30 41 59);
+    border-color: rgb(71 85 105);
+}
+
+.code-block {
+    background-color: rgb(17 24 39);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    overflow-x: auto;
+}
+
+.dark .code-block {
+    background-color: rgb(31 41 55);
+}
+
+.code-block pre {
+    font-size: 0.875rem;
+    color: rgb(209 213 219);
+}
+
+.code-block code {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Monaco, Inconsolata, "Roboto Mono", "Source Code Pro", monospace;
+}
+</style>
