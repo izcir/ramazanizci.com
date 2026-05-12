@@ -13,7 +13,13 @@
       Amaç (Kısaca)
     </h3>
     <p class="intro-text">
-      Bu çalışmanın amacı, 2019–2024 arasındaki üniversite bölümü verilerini bir araya getirip temizlemek, isim ve yazım farklılıklarını birleştirmek ve herkesin kolayca kullanabileceği tek, tutarlı bir yapıda sunmaktır. Böylece araştırma yapmak, uygulama geliştirmek ve tablolarla hızlıca inceleme yapmak çok daha kolay hale gelir. 2025 yılı için şimdilik sadece program listeleri bulunmaktadır; puan ve diğer istatistik alanları boş bırakılmıştır. Veri seti şu anda GitHub’da yer alıyor; kapsamı genişlettikten ve açıklamaları/örnekleri zenginleştirdikten sonra Kaggle’da da ayrıntılı bir sayfa olarak paylaşacağım.
+      Bu veri seti, 2019–2024 arasındaki üniversite bölümü verilerini tek bir havuzda toplayıp
+      temizlemek, isim ve yazım farklılıklarını birleştirerek tutarlı bir yapı oluşturmak için
+      hazırlandı. Böylece araştırma yapmak, uygulama geliştirmek ve tablolarla hızlıca inceleme
+      yapmak çok daha kolay hale geliyor. 2025 yılı için şimdilik sadece program listeleri
+      bulunmaktadır; puan ve diğer istatistik alanları boş bırakılmıştır. Veri seti hem
+      GitHub’da hem de Kaggle’da yayınlanmıştır ve Kaggle sayfasında hazırladığım notebooklar
+      ile detaylı bir analiz akışı da sunuyorum.
     </p>
   </div>
 
@@ -29,24 +35,43 @@
     </ul>
   </div>
 
-  <div class="content-section tech-highlights">
+  <div class="content-section story-box">
     <h3 class="section-title">
-      <i class="fas fa-folder-open text-purple-500 mr-2"></i>
-      Dosyalar (Kısa Bakış)
+      <i class="fas fa-chart-line text-blue-500 mr-2"></i>
+      Kaggle Performansı
     </h3>
-    <ul class="tech-list">
-      <li><strong>data/processed/</strong>: Normalize çekirdek dosyalar (departments_normalized.csv, department_stats.csv vb.)</li>
-      <li><strong>data/all_in_one_denormalized.csv</strong>: Tek dosyada hızlı analiz</li>
-      <li><strong>data/raw/</strong>: Kaynak (temizlenmiş) ham veriler</li>
-    </ul>
+    <p class="intro-text">
+      Kaggle tarafında veri seti güçlü geri dönüşler aldı ve bazı projelerde referans veri seti
+      olarak kullanıldığını duymak benim için çok değerliydi. Toplamda <strong>3.500+ görüntülenme</strong>
+      ve <strong>600+ indirme</strong> sayısına ulaştı.
+    </p>
   </div>
 
-  <div class="content-section">
+  <div class="content-section story-box">
     <h3 class="section-title">
-      <i class="fas fa-balance-scale text-blue-500 mr-2"></i>
-      Lisans
+      <i class="fas fa-book-open text-purple-500 mr-2"></i>
+      Kaggle Notebookları
     </h3>
-    <p class="intro-text">MIT Lisansı. Yalnızca araştırma ve eğitim amaçlı kullanıma yöneliktir.</p>
+    <ul class="tech-list">
+      <li>
+        <strong>
+          <a href="https://www.kaggle.com/code/ramazanizci/eda-exploring-turkish-university-admissions" target="_blank" rel="noopener">
+            [EDA] Exploring Turkish University Admissions (2019-2024)
+          </a>
+        </strong>:
+        Yıllık kontenjan ve yerleşen trendleri, en rekabetçi bölümler, alan bazlı popülerlik
+        değişimleri ve devlet-vakıf karşılaştırmaları.
+      </li>
+      <li>
+        <strong>
+          <a href="https://www.kaggle.com/code/ramazanizci/analysis-data-quality-consistency-report-tr" target="_blank" rel="noopener">
+            YÖK Atlas Veri Seti - Tutarlılık ve Veri Kalitesi Analizi
+          </a>
+        </strong>:
+        Kontenjan-yerleşen tutarlılığı, cinsiyet verisi anomalileri, eksik veri desenleri ve
+        hesaplama farklılıklarının detaylı incelemesi.
+      </li>
+    </ul>
   </div>
 
   <div class="content-section">
@@ -55,28 +80,34 @@
       <i class="fas fa-external-link-alt ml-2 text-xs opacity-80"></i>
     </a>
   </div>
+
+  <div class="content-section">
+    <a class="btn-primary inline-flex items-center px-4 py-2 rounded-lg text-white" href="https://www.kaggle.com/datasets/ramazanizci/turkish-university-admissions" target="_blank" rel="noopener">
+      <i class="fab fa-kaggle mr-2"></i> Kaggle Sayfası
+      <i class="fas fa-external-link-alt ml-2 text-xs opacity-80"></i>
+    </a>
+  </div>
 </div>
 
 <style>
-.project-about-content { max-width: 56rem; margin: 0 auto; padding: 1.5rem; display: flex; flex-direction: column; gap: 2rem; }
+.project-about-content { max-width: 72rem; width: 100%; margin: 0 auto; padding: 2rem 1.5rem; display: flex; flex-direction: column; gap: 2rem; }
+@media (min-width: 1024px){ .project-about-content{ padding: 2.5rem 2rem; } }
 .hero-section { text-align: center; }
 .project-title { font-size: 1.875rem; font-weight: 700; color: rgb(17 24 39); margin-bottom: .5rem; }
 .dark .project-title { color: #fff; }
 @media (min-width: 768px){ .project-title{ font-size: 2.25rem; } }
-.project-subtitle { font-size: 1.075rem; color: rgb(75 85 99); font-weight: 500; }
+.project-subtitle { font-size: 1.075rem; color: rgb(71 85 105); font-weight: 500; }
 .dark .project-subtitle { color: rgb(209 213 219); }
 .content-section { display: flex; flex-direction: column; gap: .75rem; }
-.section-title { font-size: 1.25rem; font-weight: 600; color: rgb(31 41 55); display: flex; align-items: center; }
+.section-title { font-size: 1.25rem; font-weight: 600; color: rgb(30 41 59); display: flex; align-items: center; }
 .dark .section-title { color: rgb(229 231 235); }
 @media (min-width: 768px){ .section-title{ font-size: 1.5rem; } }
-.intro-box, .story-box { background: #fff; border-radius: .75rem; padding: 1.1rem; box-shadow: 0 10px 15px -3px rgb(0 0 0 / .1), 0 4px 6px -4px rgb(0 0 0 / .1); border: 1px solid rgb(229 231 235); }
-.dark .intro-box, .dark .story-box { background: rgb(31 41 55); border-color: rgb(55 65 81); }
-.intro-text { color: rgb(55 65 81); line-height: 1.6; font-size: 1rem; }
+.intro-box, .story-box { background: rgb(249 250 251); border-radius: .75rem; padding: 1.25rem; box-shadow: 0 8px 18px -14px rgb(15 23 42 / .5); border: 1px solid rgb(229 231 235); }
+.dark .intro-box, .dark .story-box { background: rgb(30 41 59); border-color: rgb(71 85 105); }
+.intro-text { color: rgb(51 65 85); line-height: 1.6; font-size: 1rem; }
 .dark .intro-text { color: rgb(209 213 219); }
-.tech-highlights { background: linear-gradient(to bottom right, rgb(250 245 255), rgb(238 242 255)); border-radius: .75rem; padding: 1.1rem; box-shadow: 0 10px 15px -3px rgb(0 0 0 / .1), 0 4px 6px -4px rgb(0 0 0 / .1); border: 1px solid rgb(196 181 253); }
-.dark .tech-highlights { background: linear-gradient(to bottom right, rgb(31 41 55), rgb(17 24 39)); border-color: rgb(55 65 81); }
 .tech-list { display: grid; gap: .45rem; list-style: none; padding: 0; margin: 0; }
-.tech-list li { font-size: .96rem; color: rgb(75 85 99); display: flex; }
+.tech-list li { font-size: .96rem; color: rgb(71 85 105); display: flex; }
 .dark .tech-list li { color: rgb(156 163 175); }
 .tech-list li::before { content: "•"; color: rgb(59 130 246); font-weight: 700; margin-right: .5rem; }
 .btn-primary { background: linear-gradient(135deg, #3b82f6, #8b5cf6); border: 1px solid rgba(255,255,255,.15); }

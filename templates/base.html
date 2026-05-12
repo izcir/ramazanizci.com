@@ -102,7 +102,7 @@
         }
     </style>
 </head>
-<body class="font-sans bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300 page-loading">    <!-- Navigation -->
+<body class="font-sans bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300 page-loading" data-home-path="/" data-language="tr">    <!-- Navigation -->
     <nav class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-11/12 max-w-5xl bg-white/70 dark:bg-black/60 backdrop-blur-3xl border border-gray-200/50 dark:border-white/10 shadow-lg rounded-xl">
         <div class="px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
@@ -127,6 +127,10 @@
                         <i class="fas fa-sun text-black dark:text-white" id="sun-icon"></i>
                         <i class="fas fa-moon text-black dark:text-white hidden" id="moon-icon"></i>
                     </button>
+
+                    <a href="/en/" class="px-3 py-2 rounded-lg text-sm font-semibold bg-black/5 dark:bg-white/10 text-gray-700 dark:text-gray-200 hover:bg-black/10 dark:hover:bg-white/20 transition-colors">
+                        EN
+                    </a>
                     
                     <!-- Mobile menu button -->
                     <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg bg-black/10 dark:bg-white/10 hover:bg-black/20 dark:hover:bg-white/20">
@@ -142,6 +146,7 @@
                 <a href="#skills" class="mobile-nav-link">Yetenekler</a>
                 <a href="#about" class="mobile-nav-link">Hakkımda</a>
                 <a href="#contact" class="mobile-nav-link">İletişim</a>
+                <a href="/en/" class="mobile-nav-link">English</a>
             </div>
         </div>
     </nav>
@@ -176,6 +181,12 @@
                         <i class="fab fa-github mr-2"></i>
                         Bu sitenin kaynak kodları
                     </a>
+                </div>
+                <div class="mt-4 text-center">
+                    <span class="text-sm text-gray-500 dark:text-gray-400">Dil:</span>
+                    <a href="/" class="ml-2 text-sm text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">TR</a>
+                    <span class="mx-2 text-gray-400">/</span>
+                    <a href="/en/" class="text-sm text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">EN</a>
                 </div>
             </div>
         </div>
