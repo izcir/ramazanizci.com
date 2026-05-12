@@ -66,3 +66,67 @@ def contact(request):
         return redirect('core:home')
     
     return render(request, 'pages/contact.html')
+
+
+def contact_en(request):
+    if request.method == 'POST':
+        last_submission = request.session.get('last_contact_submission')
+        if last_submission:
+            last_time = timezone.datetime.fromisoformat(last_submission)
+            if timezone.now() - last_time < timedelta(seconds=10):
+                messages.error(request, 'You are sending messages too frequently. Please wait 10 seconds.')
+                return redirect('core:home_en')
+
+        name = request.POST.get('name', '').strip()
+        email = request.POST.get('email', '').strip()
+        subject = request.POST.get('subject', '').strip()
+        message = request.POST.get('message', '').strip()
+        website = request.POST.get('website', '').strip()
+
+        if website:
+            messages.error(request, 'Bot detected!')
+            return redirect('core:home_en')
+
+        suspicious_words = ['http://', 'https://', 'www.', '<script', 'javascript:', 'onclick', 'onload']
+        for word in suspicious_words:
+            if word.lower() in (name + email + subject + message).lower():
+                messages.error(request, 'Suspicious content detected!')
+                return redirect('core:home_en')
+
+        if not all([name, email, subject, message]):
+            messages.error(request, 'Please fill in all fields.')
+            return redirect('core:home_en')
+
+        if '@' not in email or '.' not in email or email.count('@') != 1:
+            messages.error(request, 'Please enter a valid email address.')
+            return redirect('core:home_en')
+
+        if len(name) > 100:
+            messages.error(request, 'Name is too long.')
+            return redirect('core:home_en')
+
+        if len(subject) > 200:
+            messages.error(request, 'Subject is too long.')
+            return redirect('core:home_en')
+
+        if len(message) > 1000:
+            messages.error(request, 'Message is too long (max 1000 characters).')
+            return redirect('core:home_en')
+
+        try:
+            Contact.objects.create(
+                name=name,
+                email=email,
+                subject=subject,
+                message=message
+            )
+
+            request.session['last_contact_submission'] = timezone.now().isoformat()
+
+            messages.success(request, 'Your message has been saved successfully!')
+        except Exception:
+            messages.error(request, 'An error occurred while saving your message. Please try again.')
+
+        return redirect('core:home_en')
+
+    return render(request, 'pages/contact_en.html')

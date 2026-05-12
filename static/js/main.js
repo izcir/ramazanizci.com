@@ -539,7 +539,10 @@ class NavigationHandler {
 
     updateNavigationLinks() {
         const currentPath = window.location.pathname;
-        const isHomePage = currentPath === '/' || currentPath === '';
+        const homePath = (document.body && document.body.dataset.homePath) ? document.body.dataset.homePath : '/';
+        const normalizedHomePath = homePath.endsWith('/') ? homePath : `${homePath}/`;
+        const normalizedCurrentPath = currentPath.endsWith('/') ? currentPath : `${currentPath}/`;
+        const isHomePage = normalizedCurrentPath === normalizedHomePath;
 
         const navSections = ['#about', '#projects', '#skills', '#contact'];
 
@@ -547,7 +550,7 @@ class NavigationHandler {
             const desktopLink = document.querySelector(`a[href="${section}"]`);
             if (desktopLink) {
                 if (!isHomePage) {
-                    desktopLink.href = `/${section}`;
+                    desktopLink.href = `${normalizedHomePath}${section}`;
                     desktopLink.addEventListener('click', (e) => {
                         e.preventDefault();
                         this.navigateToHomeWithSection(section);
@@ -564,7 +567,7 @@ class NavigationHandler {
                 const mobileLink = mobileMenu.querySelector(`a[href="${section}"]`);
                 if (mobileLink) {
                     if (!isHomePage) {
-                        mobileLink.href = `/${section}`;
+                        mobileLink.href = `${normalizedHomePath}${section}`;
                         mobileLink.addEventListener('click', (e) => {
                             e.preventDefault();
                             this.navigateToHomeWithSection(section);
@@ -579,8 +582,9 @@ class NavigationHandler {
 
     navigateToHomeWithSection(section) {
         sessionStorage.setItem('scrollTarget', section);
-
-        window.location.href = '/';
+        const homePath = (document.body && document.body.dataset.homePath) ? document.body.dataset.homePath : '/';
+        const normalizedHomePath = homePath.endsWith('/') ? homePath : `${homePath}/`;
+        window.location.href = normalizedHomePath;
     }
 
     scrollToSection(section) {
@@ -645,18 +649,6 @@ if ('performance' in window) {
     window.addEventListener('load', () => {
         const loadTime = performance.now();
         console.log(`⚡ Page loaded in ${Math.round(loadTime)}ms`);
-    });
-}
-
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-            .then(registration => {
-                console.log('SW registered: ', registration);
-            })
-            .catch(registrationError => {
-                console.log('SW registration failed: ', registrationError);
-            });
     });
 }
 

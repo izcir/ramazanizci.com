@@ -11,3 +11,14 @@ def home(request):
         'skills': skills,
     }
     return render(request, 'core/home.html', context)
+
+
+def home_en(request):
+    projects = Project.objects.filter(is_active=True).order_by('order', '-created_at')[:6]
+    skills = Skill.objects.filter(is_active=True)
+
+    context = {
+        'projects': projects,
+        'skills': skills,
+    }
+    return render(request, 'core/home_en.html', context)
